@@ -90,16 +90,16 @@
 
 
 
-<meta name="description" content="测试文章">
+<meta name="description" content="1. 几个常用的actions和Subject  ##1.actions(订阅后一定要在组件销毁时取消订阅)   1.初始化表单并且过滤  import { SET_QUESTION,SET_FROM_INFO } from &apos;../../../reducers/actions/form-service.actions&apos;;  // 初始化表单数据 this.store$.dispatch({typ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="&#39;first&#39;">
-<meta property="og:url" content="https://a1029563229.github.io/2017/05/25/first/index.html">
+<meta property="og:title" content="&#39;常用的actions和Subject&#39;">
+<meta property="og:url" content="https://a1029563229.github.io/2017/05/25/ng2-admin-actions/index.html">
 <meta property="og:site_name" content="shadows">
-<meta property="og:description" content="测试文章">
-<meta property="og:updated_time" content="2017-05-25T09:52:43.707Z">
+<meta property="og:description" content="1. 几个常用的actions和Subject  ##1.actions(订阅后一定要在组件销毁时取消订阅)   1.初始化表单并且过滤  import { SET_QUESTION,SET_FROM_INFO } from &apos;../../../reducers/actions/form-service.actions&apos;;  // 初始化表单数据 this.store$.dispatch({typ">
+<meta property="og:updated_time" content="2017-05-25T10:55:03.640Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="&#39;first&#39;">
-<meta name="twitter:description" content="测试文章">
+<meta name="twitter:title" content="&#39;常用的actions和Subject&#39;">
+<meta name="twitter:description" content="1. 几个常用的actions和Subject  ##1.actions(订阅后一定要在组件销毁时取消订阅)   1.初始化表单并且过滤  import { SET_QUESTION,SET_FROM_INFO } from &apos;../../../reducers/actions/form-service.actions&apos;;  // 初始化表单数据 this.store$.dispatch({typ">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://a1029563229.github.io/2017/05/25/first/"/>
+  <link rel="canonical" href="https://a1029563229.github.io/2017/05/25/ng2-admin-actions/"/>
 
 
 
 
 
-  <title>'first' | shadows</title>
+  <title>'常用的actions和Subject' | shadows</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -253,7 +253,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://a1029563229.github.io/2017/05/25/first/">
+    <link itemprop="mainEntityOfPage" href="https://a1029563229.github.io/2017/05/25/ng2-admin-actions/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="shadows">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">'first'</h1>
+          <h1 class="post-title" itemprop="name headline">'常用的actions和Subject'</h1>
         
 
         <div class="post-meta">
@@ -282,7 +282,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-25T17:52:35+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-25T18:52:35+08:00">
                 2017-05-25
               </time>
             
@@ -317,8 +317,76 @@
       
 
       
-        <p>测试文章</p>
+        <h1 id="1-几个常用的actions和Subject"><a href="#1-几个常用的actions和Subject" class="headerlink" title="1. 几个常用的actions和Subject"></a>1. 几个常用的actions和Subject</h1><p><br></p>
+<blockquote>
+<p>##1.actions(订阅后一定要在组件销毁时取消订阅)</p>
+</blockquote>
+<p><br></p>
+<h3 id="1-初始化表单并且过滤"><a href="#1-初始化表单并且过滤" class="headerlink" title="1.初始化表单并且过滤"></a>1.初始化表单并且过滤</h3><p><br></p>
+<pre>
+import { SET_QUESTION,SET_FROM_INFO } from '../../../reducers/actions/form-service.actions';
 
+// 初始化表单数据
+this.store$.dispatch({type:SET_QUESTION,payload:service.getQuestions()});
+this.subscription = this.store$.select('formService').subscribe((questions:any) => {
+    this.advertQuestions = questions.data;
+});
+
+//过滤表单数据(通过用户信息)
+this.store$.dispatch({type:SET_FROM_INFO,payload:this.storage.retrieve('datainfo')});
+
+//过滤表单数据(通过数据字典)
+@Inject('dynamicFormService') private formService
+
+this.formService.getDictionary(15).subscribe((data:any) => {
+    this.store$.dispatch({type:SET_FROM_INFO,payload:{dictionary:15,data:data.pageData}});
+    this.subscription.unsubscribe();
+});
+
+//过滤表单数据（禁用某些）
+this.store$.dispatch({type:SET_FROM_INFO,payload:{disabledItem:['appId','userName','type']}});
+</pre>
+
+<p>###2.控制弹出层显示隐藏</p>
+<pre>
+//初始化弹出层
+let plugins$ = Observable.of(true).switchMap(selectBoo => {
+  this.store$.dispatch({type:SELECT_SOME, payload:{selectBoo,type:'table'}});
+  return this.store$.select('methods');
+});
+
+plugins$.subscribe((data:any) => {
+  this.plugins = data;
+})
+
+// 弹出弹出层
+this.store$.dispatch({type:SELECT_SOME, payload:{selectType:'table',type:'form', params:this.question.state}});
+
+//隐藏弹出层
+this.store$.dispatch({type:SELECT_SOME, payload:{selectType:'',selectControl:false,type:'table'}});
+</pre>
+
+
+<p><br></p>
+<blockquote>
+<p>##1.Subject(订阅后一定要在组件销毁时取消订阅)</p>
+</blockquote>
+<p><br></p>
+<p>###1.appService</p>
+<pre>
+@Inject('appOptionService') private appService
+
+// 发送数据
+this.appService.setAppId({
+  appId:this.appId
+});
+
+// 接受数据
+this.appIdSub = this.appService.getAppId()
+  .subscribe((params:any) => {
+    this.config.params.appId = params.appId;
+  });
+</pre>
       
     </div>
 
@@ -354,14 +422,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/05/25/first/" rel="next" title="'first'">
+                <i class="fa fa-chevron-left"></i> 'first'
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/25/ng2-admin-actions/" rel="prev" title="'常用的actions和Subject'">
-                '常用的actions和Subject' <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/25/ng2-admin-form/" rel="prev" title="'表单配置信息'">
+                '表单配置信息' <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -409,8 +481,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -454,6 +535,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-几个常用的actions和Subject"><span class="nav-number">1.</span> <span class="nav-text">1. 几个常用的actions和Subject</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-初始化表单并且过滤"><span class="nav-number">1.0.1.</span> <span class="nav-text">1.初始化表单并且过滤</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

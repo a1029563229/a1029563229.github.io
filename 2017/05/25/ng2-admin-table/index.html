@@ -90,16 +90,16 @@
 
 
 
-<meta name="description" content="测试文章">
+<meta name="description" content="1. Table - config1.表格数据信息 - config url:&apos;org/list&apos;, // 表格数据请求地址 params:{ // 参数   pageNumber:1, // 页码   pageSize:10 // 每页数量   xxx:&apos;xx&apos; // 选填筛选参数 }   1.表格配置信息 - tables style:&apos;table-form&apos; // 表单风格   2. Tab">
 <meta property="og:type" content="article">
-<meta property="og:title" content="&#39;first&#39;">
-<meta property="og:url" content="https://a1029563229.github.io/2017/05/25/first/index.html">
+<meta property="og:title" content="&#39;Table&#39;">
+<meta property="og:url" content="https://a1029563229.github.io/2017/05/25/ng2-admin-table/index.html">
 <meta property="og:site_name" content="shadows">
-<meta property="og:description" content="测试文章">
-<meta property="og:updated_time" content="2017-05-25T09:52:43.707Z">
+<meta property="og:description" content="1. Table - config1.表格数据信息 - config url:&apos;org/list&apos;, // 表格数据请求地址 params:{ // 参数   pageNumber:1, // 页码   pageSize:10 // 每页数量   xxx:&apos;xx&apos; // 选填筛选参数 }   1.表格配置信息 - tables style:&apos;table-form&apos; // 表单风格   2. Tab">
+<meta property="og:updated_time" content="2017-05-25T10:56:52.499Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="&#39;first&#39;">
-<meta name="twitter:description" content="测试文章">
+<meta name="twitter:title" content="&#39;Table&#39;">
+<meta name="twitter:description" content="1. Table - config1.表格数据信息 - config url:&apos;org/list&apos;, // 表格数据请求地址 params:{ // 参数   pageNumber:1, // 页码   pageSize:10 // 每页数量   xxx:&apos;xx&apos; // 选填筛选参数 }   1.表格配置信息 - tables style:&apos;table-form&apos; // 表单风格   2. Tab">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://a1029563229.github.io/2017/05/25/first/"/>
+  <link rel="canonical" href="https://a1029563229.github.io/2017/05/25/ng2-admin-table/"/>
 
 
 
 
 
-  <title>'first' | shadows</title>
+  <title>'Table' | shadows</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -253,7 +253,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://a1029563229.github.io/2017/05/25/first/">
+    <link itemprop="mainEntityOfPage" href="https://a1029563229.github.io/2017/05/25/ng2-admin-table/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="shadows">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">'first'</h1>
+          <h1 class="post-title" itemprop="name headline">'Table'</h1>
         
 
         <div class="post-meta">
@@ -282,7 +282,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-25T17:52:35+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-25T18:53:40+08:00">
                 2017-05-25
               </time>
             
@@ -317,7 +317,70 @@
       
 
       
-        <p>测试文章</p>
+        <h2 id="1-Table-config"><a href="#1-Table-config" class="headerlink" title="1. Table - config"></a>1. Table - config</h2><h3 id="1-表格数据信息-config"><a href="#1-表格数据信息-config" class="headerlink" title="1.表格数据信息 - config"></a>1.表格数据信息 - config</h3><pre>
+url:'org/list', // 表格数据请求地址
+params:{ // 参数
+  pageNumber:1, // 页码
+  pageSize:10 // 每页数量
+  xxx:'xx' // 选填筛选参数
+}
+</pre>
+
+<h3 id="1-表格配置信息-tables"><a href="#1-表格配置信息-tables" class="headerlink" title="1.表格配置信息 - tables"></a>1.表格配置信息 - tables</h3><pre>
+style:'table-form' // 表单风格
+</pre>
+
+<h2 id="2-Table-参数"><a href="#2-Table-参数" class="headerlink" title="2. Table - 参数"></a>2. Table - 参数</h2><h3 id="1-普通的table"><a href="#1-普通的table" class="headerlink" title="1. 普通的table"></a>1. 普通的table</h3><pre>
+new TextTable({
+  key: 'appId',          // 匹配的键值名
+  value: '所属企业',     // 标题名称
+  order: 1,              // 排序
+  filter:["未交费","已缴费"]    // 过滤器 对应字段 [1,2]
+  class: ["text-success","text-danger"],    // 对应上面的样式 
+  pipes: 'auditState', // 管道过滤 例如 1->已激活 
+  // auditState 审核状态 areaPicture 省市区状态 typeState 机构名称
+  handle:[    //操作 数组长度对应相关按钮
+   {
+     type: "state",  // 操作状态
+     keys: ["生效","失效"],  // 对应的状态文字 tab切换
+     class: ["text-danger","text-success"], // 对应上面的样式
+     tag: "isActive", // 切换状态改变的key值 (参数)
+     url:"contract/enabled", // 改变状态请求的url (ajax)
+     params:[ // ajax入参
+       { enabled: "isActive" }, //key为参数 value为参数值
+       { id: "id" } 
+     ]
+   },
+   {
+     type: "url", // 跳转url
+     url: "/pages/merchants/contract/details", // 跳转地址
+     keys: ["详情"], // 按钮对应文字
+     class: ["text-primary"], // 按钮文字对应样式
+     params:[ //跳转带的url参数
+        { id: "id" }
+     ]
+   }
+]
+}),
+</pre>
+
+<h3 id="2-普通的Icons"><a href="#2-普通的Icons" class="headerlink" title="2. 普通的Icons"></a>2. 普通的Icons</h3><pre>
+new TextTable({
+    key: 'upload', // 无意义字段
+    class:'icon-common_modify_password', // icon样式 为空无Icon
+    label:'修改密码', // Icon文字
+    actions:{ // 操作
+      methods:'update', // Icon对应的方法 控制Icon的功能
+      // > add 跳转路由带id(需要选中)  > delete 删除 > update 更新,需要传入url > router 跳转 
+      // > auto 跳转带自定义参数(需要传入params) > upload 上传弹出层 > form 表单弹出层
+      url:'/pages/user/subject/update', // 需要跳转的url
+      params:'id' // 跳转路由需要传入的参数
+    },
+    order: 3 // 排序
+})
+</pre>
+
+
 
       
     </div>
@@ -354,15 +417,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/05/25/ng2-admin-tableReducer/" rel="next" title="'tableReducer'">
+                <i class="fa fa-chevron-left"></i> 'tableReducer'
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/25/ng2-admin-actions/" rel="prev" title="'常用的actions和Subject'">
-                '常用的actions和Subject' <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -409,8 +472,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -454,6 +526,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Table-config"><span class="nav-number">1.</span> <span class="nav-text">1. Table - config</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-表格数据信息-config"><span class="nav-number">1.1.</span> <span class="nav-text">1.表格数据信息 - config</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-表格配置信息-tables"><span class="nav-number">1.2.</span> <span class="nav-text">1.表格配置信息 - tables</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Table-参数"><span class="nav-number">2.</span> <span class="nav-text">2. Table - 参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-普通的table"><span class="nav-number">2.1.</span> <span class="nav-text">1. 普通的table</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-普通的Icons"><span class="nav-number">2.2.</span> <span class="nav-text">2. 普通的Icons</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

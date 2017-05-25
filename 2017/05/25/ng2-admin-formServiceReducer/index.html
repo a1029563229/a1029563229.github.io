@@ -90,16 +90,16 @@
 
 
 
-<meta name="description" content="测试文章">
+<meta name="description" content="1. formServiceReducer - formService 用于表单渲染前过滤1. SET_QUESTION - 初始化表单 // 调用方法 this.store$.dispatch({type:SET_QUESTION, payload:service.getSelectQuestions()}); &amp;gt;&amp;gt; payload 表单初始模型  // 触发方法 return Object.a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="&#39;first&#39;">
-<meta property="og:url" content="https://a1029563229.github.io/2017/05/25/first/index.html">
+<meta property="og:title" content="&#39;formServiceReducer&#39;">
+<meta property="og:url" content="https://a1029563229.github.io/2017/05/25/ng2-admin-formServiceReducer/index.html">
 <meta property="og:site_name" content="shadows">
-<meta property="og:description" content="测试文章">
-<meta property="og:updated_time" content="2017-05-25T09:52:43.707Z">
+<meta property="og:description" content="1. formServiceReducer - formService 用于表单渲染前过滤1. SET_QUESTION - 初始化表单 // 调用方法 this.store$.dispatch({type:SET_QUESTION, payload:service.getSelectQuestions()}); &amp;gt;&amp;gt; payload 表单初始模型  // 触发方法 return Object.a">
+<meta property="og:updated_time" content="2017-05-25T10:56:16.183Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="&#39;first&#39;">
-<meta name="twitter:description" content="测试文章">
+<meta name="twitter:title" content="&#39;formServiceReducer&#39;">
+<meta name="twitter:description" content="1. formServiceReducer - formService 用于表单渲染前过滤1. SET_QUESTION - 初始化表单 // 调用方法 this.store$.dispatch({type:SET_QUESTION, payload:service.getSelectQuestions()}); &amp;gt;&amp;gt; payload 表单初始模型  // 触发方法 return Object.a">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://a1029563229.github.io/2017/05/25/first/"/>
+  <link rel="canonical" href="https://a1029563229.github.io/2017/05/25/ng2-admin-formServiceReducer/"/>
 
 
 
 
 
-  <title>'first' | shadows</title>
+  <title>'formServiceReducer' | shadows</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -253,7 +253,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://a1029563229.github.io/2017/05/25/first/">
+    <link itemprop="mainEntityOfPage" href="https://a1029563229.github.io/2017/05/25/ng2-admin-formServiceReducer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="shadows">
@@ -270,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">'first'</h1>
+          <h1 class="post-title" itemprop="name headline">'formServiceReducer'</h1>
         
 
         <div class="post-meta">
@@ -282,7 +282,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-25T17:52:35+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-25T18:53:37+08:00">
                 2017-05-25
               </time>
             
@@ -317,8 +317,76 @@
       
 
       
-        <p>测试文章</p>
+        <h2 id="1-formServiceReducer-formService-用于表单渲染前过滤"><a href="#1-formServiceReducer-formService-用于表单渲染前过滤" class="headerlink" title="1. formServiceReducer - formService 用于表单渲染前过滤"></a>1. formServiceReducer - formService 用于表单渲染前过滤</h2><h3 id="1-SET-QUESTION-初始化表单"><a href="#1-SET-QUESTION-初始化表单" class="headerlink" title="1. SET_QUESTION - 初始化表单"></a>1. SET_QUESTION - 初始化表单</h3><pre>
+// 调用方法
+this.store$.dispatch({type:SET_QUESTION, payload:service.getSelectQuestions()});
+>> payload 表单初始模型
 
+// 触发方法
+return Object.assign(state,{data:[...action.payload]});
+</pre>
+
+
+<h3 id="2-SET-CITY-设置省市县用于地区选择"><a href="#2-SET-CITY-设置省市县用于地区选择" class="headerlink" title="2. SET_CITY - 设置省市县用于地区选择"></a>2. SET_CITY - 设置省市县用于地区选择</h3><pre>
+// 调用方法
+this.store$.dispatch({type:SET_CITY,payload:data.pageData});
+>> payload 地区参数
+
+// 触发方法
+return Object.assign(state,{city: [...action.payload]});
+</pre>
+
+<h3 id="3-CHOOSE-ITEM-选择某一项（单用于弹出层选择某项）"><a href="#3-CHOOSE-ITEM-选择某一项（单用于弹出层选择某项）" class="headerlink" title="3. CHOOSE_ITEM - 选择某一项（单用于弹出层选择某项）"></a>3. CHOOSE_ITEM - 选择某一项（单用于弹出层选择某项）</h3><pre>
+// 调用方法
+this.store$.dispatch({type:CHOOSE_ITEM,payload:{name:this.chooseType,data}});
+>> name 选择的类型（例:orgIds) data 弹出层表格数据
+
+// 触发方法
+let questions = state.data;
+let selectItem = questions.filter(question => question.key == action.payload.name)[0];
+let selectInfo = action.payload.data.filter(info => info.selected)[0];
+let i = questions.indexOf(selectItem);
+return Object.assign({}, {data:[
+    ...questions.slice(0,i),
+    Object.assign(selectItem,{prompt:selectInfo.name, value:[selectInfo.id]}),
+    ...questions.slice(i + 1)
+]});
+</pre>
+
+<h3 id="4-DELECT-PASSWORD-删除密码输入框"><a href="#4-DELECT-PASSWORD-删除密码输入框" class="headerlink" title="4. DELECT_PASSWORD - 删除密码输入框"></a>4. DELECT_PASSWORD - 删除密码输入框</h3><pre>
+// 调用方法
+this.store$.dispatch({type:DELECT_PASSWORD});
+>> 
+
+// 触发方法
+return Object.assign({},{data:state.data.filter(question => !question.actions.isPassword)});
+</pre>
+
+<h3 id="5-SET-FROM-INFO-初始化表单后-过滤数据-模型"><a href="#5-SET-FROM-INFO-初始化表单后-过滤数据-模型" class="headerlink" title="5. SET _FROM _INFO - 初始化表单后 过滤数据/模型"></a>5. SET _FROM _INFO - 初始化表单后 过滤数据/模型</h3><pre>
+// 调用方法
+this.store$.dispatch({type:'TREE_INFO', payload:{data:result.pageData}});
+>> data 数据
+
+// 触发方法
+let params:any = {};
+state.data.forEach((question,index) => {
+    switch (question.key) {
+         ...
+    }
+});
+return Object.assign(state,{data:state.data,params});
+</pre>
+
+<h3 id="5-DELETE-ITEM-删除某项表格数据"><a href="#5-DELETE-ITEM-删除某项表格数据" class="headerlink" title="5. DELETE_ITEM - 删除某项表格数据"></a>5. DELETE_ITEM - 删除某项表格数据</h3><pre>
+// 调用方法
+this.store$.dispatch({type:DELETE_ITEM,payload:id})
+>> id 删除的id
+
+// 触发方法
+let data = state.data.filter(item => item.id != action.payload.id);
+state = Object.assign(state,{data})
+return Object.assign({},state);
+</pre>
       
     </div>
 
@@ -354,14 +422,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/05/25/ng2-admin-formReducer/" rel="next" title="'formReducer'">
+                <i class="fa fa-chevron-left"></i> 'formReducer'
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/05/25/ng2-admin-actions/" rel="prev" title="'常用的actions和Subject'">
-                '常用的actions和Subject' <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/25/ng2-admin-methodsReducer/" rel="prev" title="'methodsReducer'">
+                'methodsReducer' <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -409,8 +481,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -454,6 +535,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-formServiceReducer-formService-用于表单渲染前过滤"><span class="nav-number">1.</span> <span class="nav-text">1. formServiceReducer - formService 用于表单渲染前过滤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-SET-QUESTION-初始化表单"><span class="nav-number">1.1.</span> <span class="nav-text">1. SET_QUESTION - 初始化表单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-SET-CITY-设置省市县用于地区选择"><span class="nav-number">1.2.</span> <span class="nav-text">2. SET_CITY - 设置省市县用于地区选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-CHOOSE-ITEM-选择某一项（单用于弹出层选择某项）"><span class="nav-number">1.3.</span> <span class="nav-text">3. CHOOSE_ITEM - 选择某一项（单用于弹出层选择某项）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-DELECT-PASSWORD-删除密码输入框"><span class="nav-number">1.4.</span> <span class="nav-text">4. DELECT_PASSWORD - 删除密码输入框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-SET-FROM-INFO-初始化表单后-过滤数据-模型"><span class="nav-number">1.5.</span> <span class="nav-text">5. SET _FROM _INFO - 初始化表单后 过滤数据/模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-DELETE-ITEM-删除某项表格数据"><span class="nav-number">1.6.</span> <span class="nav-text">5. DELETE_ITEM - 删除某项表格数据</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

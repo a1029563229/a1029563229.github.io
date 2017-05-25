@@ -1,0 +1,846 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="1. form-config1.表单配置信息 - config style:&apos;user-form&apos;, // 表单样式 &amp;gt; user-form 普通表单 &amp;gt; table-form table表单(用于筛选) &amp;gt; select-form 弹出层表单 url:&apos;config/add&apos;, // 表单提交地址（新增） updateUrl:&apos;config/update&apos;, // 表单更新地址（更新数据） ba">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&#39;表单配置信息&#39;">
+<meta property="og:url" content="https://a1029563229.github.io/2017/05/25/ng2-admin-form/index.html">
+<meta property="og:site_name" content="shadows">
+<meta property="og:description" content="1. form-config1.表单配置信息 - config style:&apos;user-form&apos;, // 表单样式 &amp;gt; user-form 普通表单 &amp;gt; table-form table表单(用于筛选) &amp;gt; select-form 弹出层表单 url:&apos;config/add&apos;, // 表单提交地址（新增） updateUrl:&apos;config/update&apos;, // 表单更新地址（更新数据） ba">
+<meta property="og:updated_time" content="2017-05-25T10:55:33.919Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="&#39;表单配置信息&#39;">
+<meta name="twitter:description" content="1. form-config1.表单配置信息 - config style:&apos;user-form&apos;, // 表单样式 &amp;gt; user-form 普通表单 &amp;gt; table-form table表单(用于筛选) &amp;gt; select-form 弹出层表单 url:&apos;config/add&apos;, // 表单提交地址（新增） updateUrl:&apos;config/update&apos;, // 表单更新地址（更新数据） ba">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://a1029563229.github.io/2017/05/25/ng2-admin-form/"/>
+
+
+
+
+
+  <title>'表单配置信息' | shadows</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">shadows</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">the blog of shadows</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://a1029563229.github.io/2017/05/25/ng2-admin-form/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shadows">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shadows">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">'表单配置信息'</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-25T18:53:35+08:00">
+                2017-05-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-form-config"><a href="#1-form-config" class="headerlink" title="1. form-config"></a>1. form-config</h2><h3 id="1-表单配置信息-config"><a href="#1-表单配置信息-config" class="headerlink" title="1.表单配置信息 - config"></a>1.表单配置信息 - config</h3><pre>
+style:'user-form', // 表单样式 > user-form 普通表单 > table-form table表单(用于筛选) > select-form 弹出层表单
+url:'config/add', // 表单提交地址（新增）
+updateUrl:'config/update', // 表单更新地址（更新数据）
+backUrl:'/pages/merchants/config', // 表单提交的回调地址
+infoUrl:'config/info' //已有数据的url（页面判断后添加）
+</pre>
+
+<h2 id="2-form-input"><a href="#2-form-input" class="headerlink" title="2. form-input"></a>2. form-input</h2><h3 id="1-普通的Input输入框-TextboxQuestion"><a href="#1-普通的Input输入框-TextboxQuestion" class="headerlink" title="1. 普通的Input输入框 - TextboxQuestion"></a>1. 普通的Input输入框 - TextboxQuestion</h3><pre>
+new TextboxQuestion({
+    key: 'qualificationExpiredDate', // 字段名
+    label: '资质审核时效', // 名称
+    required: true,    // 是否为必填
+    disabled: true, // 是否禁用
+    type:'text', // input类型
+    reg:regExp.number, // 验证正则 
+    // > number 数字正则 > tel 电话/手机正则 > email 邮箱正则 > text 汉字英文正则
+       > length 长度2-9 > account 银行卡号正则 file > 文件正则 > password 密码正则
+       > len50 长度50
+    prompt:'资质审核时效必须大于1个工作日', // 正则不通过的提示信息
+    actions:{ // 操作
+      count:'个工作日' // Input后缀
+    },
+    state: {
+      placeholder:'数字，数字越小越向前' // 默认文字
+    },
+    order: 8 // 排序
+}),
+</pre>
+
+<h3 id="2-普通的textarea-TextQuestion"><a href="#2-普通的textarea-TextQuestion" class="headerlink" title="2. 普通的textarea - TextQuestion"></a>2. 普通的textarea - TextQuestion</h3><pre>
+new TextQuestion({
+    key: 'majorBusiness',
+    label: '主要业务',
+    required:false,
+    value:'',
+    order: 5
+}),
+</pre>
+
+<h3 id="3-普通的radio-RadioQuestion"><a href="#3-普通的radio-RadioQuestion" class="headerlink" title="3. 普通的radio - RadioQuestion"></a>3. 普通的radio - RadioQuestion</h3><pre>
+new RadioQuestion({
+    key: 'type',
+    label: '机构类型',
+    required:true,
+    value:"1", // 默认选中的值，对应下方的key
+    options: [ // 选项 key为传递给接口的参数， value为显示的值
+      {key: '1',  value: '商家'},
+      {key: '2',  value: '机构'},
+      {key: '3',  value: '平台'}
+    ],
+    state:{ // 状态切换，选中某项需要切换表单状态时，传入此参数 需要组件中再进行配置
+      deleteItem:['parentSubject','childStyle']
+    },
+    order: 3
+})
+</pre>
+
+<h3 id="4-普通的select-DropdownQuestion"><a href="#4-普通的select-DropdownQuestion" class="headerlink" title="4. 普通的select - DropdownQuestion"></a>4. 普通的select - DropdownQuestion</h3><pre>
+new DropdownQuestion({
+    key: 'appName',
+    label: '平台显示名称',
+    required:true,
+    value:'测试平台20000015', // 默认选中的值，对应下方的key
+    options: [ // 选项 key为传递给接口的参数， value为显示的值
+      {key: '测试平台20000015',  value: '测试平台20000015'},
+      {key: '测试平台',  value: '测试平台'},
+      {key: '测试平台',  value: '测试平台'}
+    ],
+    order: 2
+}),
+</pre>
+
+<h3 id="5-单张图片上传-UploadQuestion"><a href="#5-单张图片上传-UploadQuestion" class="headerlink" title="5. 单张图片上传 - UploadQuestion"></a>5. 单张图片上传 - UploadQuestion</h3><pre>
+new UploadQuestion({
+    key: 'qrcode',
+    label: '二维码图片',
+    required:true,
+    state:{
+      description:'图片上传尺寸720*234', //图片上传说明
+      style:'144-68' // 图片上传尺寸
+    },
+    value:'',
+    order: 6
+}),
+</pre>
+
+<h3 id="6-多张图片上传-UploadBannerQuestion"><a href="#6-多张图片上传-UploadBannerQuestion" class="headerlink" title="6. 多张图片上传 - UploadBannerQuestion"></a>6. 多张图片上传 - UploadBannerQuestion</h3><pre>
+new UploadBannerQuestion({
+    key: 'banner',
+    label: '轮播banner(多选)',
+    value:'',
+    order: 7
+}),
+</pre>
+
+<h3 id="7-单-多文件上传-UploadFileQuestion"><a href="#7-单-多文件上传-UploadFileQuestion" class="headerlink" title="7. 单/多文件上传 - UploadFileQuestion"></a>7. 单/多文件上传 - UploadFileQuestion</h3><pre>
+new UploadFileQuestion({
+    key: 'agreementFile',
+    label: '服务文件附件',
+    required:true,
+    reg:regExp.file,
+    state:{ // 加入single参数 则为单文件上传
+      single:true
+    },
+    value:'',
+    order: 20
+}),
+</pre>
+
+<h3 id="8-文件下载以及上传-DownloadQuestion"><a href="#8-文件下载以及上传-DownloadQuestion" class="headerlink" title="8. 文件下载以及上传 - DownloadQuestion"></a>8. 文件下载以及上传 - DownloadQuestion</h3><pre>
+new DownloadQuestion({
+    key: 'agreementFile',
+    label: '服务文件附件',
+    required:true,
+    reg:regExp.file,
+    state:{
+      single:true,
+      download:{ // 下载文件
+        file:'assets/img/file/example.xlsx', // 下载地址
+        name:'example' // 下载文件名称
+      }
+    },
+    value:'',
+    order: 20
+})
+</pre>
+
+<h3 id="9-富文本编辑器-TextareaQuestion"><a href="#9-富文本编辑器-TextareaQuestion" class="headerlink" title="9. 富文本编辑器 - TextareaQuestion"></a>9. 富文本编辑器 - TextareaQuestion</h3><pre>
+new TextareaQuestion({
+    key: 'agreementContext',
+    label: '服务协议内容',
+    required: true,
+    value:'',
+    type:'text',
+    order: 21
+}),
+</pre>
+
+<h3 id="10-弹出层-选择机构-角色-SelectQuetion"><a href="#10-弹出层-选择机构-角色-SelectQuetion" class="headerlink" title="10. 弹出层(选择机构/角色) - SelectQuetion"></a>10. 弹出层(选择机构/角色) - SelectQuetion</h3><pre>
+new SelectQuetion({
+    key: 'roleIds',
+    label: '用户角色',
+    required: true,
+    value:'',
+    order: 0
+})
+</pre>
+
+<h3 id="11-时间选择-DateQuestion"><a href="#11-时间选择-DateQuestion" class="headerlink" title="11. 时间选择 - DateQuestion"></a>11. 时间选择 - DateQuestion</h3><pre>
+new DateQuestion({
+    key: 'startTime',
+    label: '开始时间',
+    required:true,
+    value:"",
+    actions:{
+      dateType:'dateTime' //时间类型 dateTime为时间选择 其他为日期选择
+    },
+    type:'text',
+    order: 19
+  }),
+</pre>
+
+
+<h2 id="3-form-button-（普通的表单不需要）"><a href="#3-form-button-（普通的表单不需要）" class="headerlink" title="3 form-button （普通的表单不需要）"></a>3 form-button （普通的表单不需要）</h2><h3 id="1-普通的button"><a href="#1-普通的button" class="headerlink" title="1.普通的button"></a>1.普通的button</h3><pre>
+new ButtonController({
+  key:'search', // 功能 submit为提交表单
+  label:'warning', // 按钮样式
+  value:'新增', // 按钮文字
+  actions:{ // 操作
+    label:'icon-common_add_3', // 按钮的icon 选填
+    methods:{ // 按钮的方法
+      type:'router', // 跳转路由
+      url:'/pages/merchants/config/add' // 跳转的url
+
+      type:'http', // http请求 用于与表单配合
+      url:'config/list' // 请求的url
+
+      type:'submit', // 提交表单 -- 一般用于弹出层
+      url:'org/list' // 提交的地址
+
+      type:'close', // 关闭弹出层
+      url:'/pages/system/org' // 暂无功能
+    }
+  }
+})
+</pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/25/ng2-admin-actions/" rel="next" title="'常用的actions和Subject'">
+                <i class="fa fa-chevron-left"></i> '常用的actions和Subject'
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/25/ng2-admin-formReducer/" rel="prev" title="'formReducer'">
+                'formReducer' <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="shadows" />
+          <p class="site-author-name" itemprop="name">shadows</p>
+           
+              <p class="site-description motion-element" itemprop="description">first</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-form-config"><span class="nav-number">1.</span> <span class="nav-text">1. form-config</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-表单配置信息-config"><span class="nav-number">1.1.</span> <span class="nav-text">1.表单配置信息 - config</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-form-input"><span class="nav-number">2.</span> <span class="nav-text">2. form-input</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-普通的Input输入框-TextboxQuestion"><span class="nav-number">2.1.</span> <span class="nav-text">1. 普通的Input输入框 - TextboxQuestion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-普通的textarea-TextQuestion"><span class="nav-number">2.2.</span> <span class="nav-text">2. 普通的textarea - TextQuestion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-普通的radio-RadioQuestion"><span class="nav-number">2.3.</span> <span class="nav-text">3. 普通的radio - RadioQuestion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-普通的select-DropdownQuestion"><span class="nav-number">2.4.</span> <span class="nav-text">4. 普通的select - DropdownQuestion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-单张图片上传-UploadQuestion"><span class="nav-number">2.5.</span> <span class="nav-text">5. 单张图片上传 - UploadQuestion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-多张图片上传-UploadBannerQuestion"><span class="nav-number">2.6.</span> <span class="nav-text">6. 多张图片上传 - UploadBannerQuestion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-单-多文件上传-UploadFileQuestion"><span class="nav-number">2.7.</span> <span class="nav-text">7. 单/多文件上传 - UploadFileQuestion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-文件下载以及上传-DownloadQuestion"><span class="nav-number">2.8.</span> <span class="nav-text">8. 文件下载以及上传 - DownloadQuestion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-富文本编辑器-TextareaQuestion"><span class="nav-number">2.9.</span> <span class="nav-text">9. 富文本编辑器 - TextareaQuestion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-弹出层-选择机构-角色-SelectQuetion"><span class="nav-number">2.10.</span> <span class="nav-text">10. 弹出层(选择机构/角色) - SelectQuetion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-时间选择-DateQuestion"><span class="nav-number">2.11.</span> <span class="nav-text">11. 时间选择 - DateQuestion</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-form-button-（普通的表单不需要）"><span class="nav-number">3.</span> <span class="nav-text">3 form-button （普通的表单不需要）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-普通的button"><span class="nav-number">3.1.</span> <span class="nav-text">1.普通的button</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shadows</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
