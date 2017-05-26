@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="shadows" />
+  <meta name="keywords" content="angular2,redux," />
 
 
 
@@ -90,16 +90,17 @@
 
 
 
-<meta name="description" content="1. Table - config1.表格数据信息 - config url:&apos;org/list&apos;, // 表格数据请求地址 params:{ // 参数   pageNumber:1, // 页码   pageSize:10 // 每页数量   xxx:&apos;xx&apos; // 选填筛选参数 }   1.表格配置信息 - tables style:&apos;table-form&apos; // 表单风格   2. Tab">
+<meta name="description" content="1. Table - config1.表格数据信息 - config123456url:&apos;org/list&apos;, // 表格数据请求地址params:&amp;#123; // 参数  pageNumber:1, // 页码  pageSize:10 // 每页数量  xxx:&apos;xx&apos; // 选填筛选参数&amp;#125; 1.表格配置信息 - tables1style:&amp;apos;table-form&amp;apos">
+<meta name="keywords" content="angular2,redux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&#39;Table&#39;">
 <meta property="og:url" content="https://a1029563229.github.io/2017/05/25/ng2-admin-table/index.html">
 <meta property="og:site_name" content="shadows">
-<meta property="og:description" content="1. Table - config1.表格数据信息 - config url:&apos;org/list&apos;, // 表格数据请求地址 params:{ // 参数   pageNumber:1, // 页码   pageSize:10 // 每页数量   xxx:&apos;xx&apos; // 选填筛选参数 }   1.表格配置信息 - tables style:&apos;table-form&apos; // 表单风格   2. Tab">
-<meta property="og:updated_time" content="2017-05-25T10:56:52.499Z">
+<meta property="og:description" content="1. Table - config1.表格数据信息 - config123456url:&apos;org/list&apos;, // 表格数据请求地址params:&amp;#123; // 参数  pageNumber:1, // 页码  pageSize:10 // 每页数量  xxx:&apos;xx&apos; // 选填筛选参数&amp;#125; 1.表格配置信息 - tables1style:&amp;apos;table-form&amp;apos">
+<meta property="og:updated_time" content="2017-05-26T10:02:56.201Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="&#39;Table&#39;">
-<meta name="twitter:description" content="1. Table - config1.表格数据信息 - config url:&apos;org/list&apos;, // 表格数据请求地址 params:{ // 参数   pageNumber:1, // 页码   pageSize:10 // 每页数量   xxx:&apos;xx&apos; // 选填筛选参数 }   1.表格配置信息 - tables style:&apos;table-form&apos; // 表单风格   2. Tab">
+<meta name="twitter:description" content="1. Table - config1.表格数据信息 - config123456url:&apos;org/list&apos;, // 表格数据请求地址params:&amp;#123; // 参数  pageNumber:1, // 页码  pageSize:10 // 每页数量  xxx:&apos;xx&apos; // 选填筛选参数&amp;#125; 1.表格配置信息 - tables1style:&amp;apos;table-form&amp;apos">
 
 
 
@@ -333,8 +334,41 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ng2/" itemprop="url" rel="index">
+                    <span itemprop="name">ng2</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/25/ng2-admin-table/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/05/25/ng2-admin-table/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -368,70 +402,10 @@
       
 
       
-        <h2 id="1-Table-config"><a href="#1-Table-config" class="headerlink" title="1. Table - config"></a>1. Table - config</h2><h3 id="1-表格数据信息-config"><a href="#1-表格数据信息-config" class="headerlink" title="1.表格数据信息 - config"></a>1.表格数据信息 - config</h3><pre>
-url:'org/list', // 表格数据请求地址
-params:{ // 参数
-  pageNumber:1, // 页码
-  pageSize:10 // 每页数量
-  xxx:'xx' // 选填筛选参数
-}
-</pre>
-
-<h3 id="1-表格配置信息-tables"><a href="#1-表格配置信息-tables" class="headerlink" title="1.表格配置信息 - tables"></a>1.表格配置信息 - tables</h3><pre>
-style:'table-form' // 表单风格
-</pre>
-
-<h2 id="2-Table-参数"><a href="#2-Table-参数" class="headerlink" title="2. Table - 参数"></a>2. Table - 参数</h2><h3 id="1-普通的table"><a href="#1-普通的table" class="headerlink" title="1. 普通的table"></a>1. 普通的table</h3><pre>
-new TextTable({
-  key: 'appId',          // 匹配的键值名
-  value: '所属企业',     // 标题名称
-  order: 1,              // 排序
-  filter:["未交费","已缴费"]    // 过滤器 对应字段 [1,2]
-  class: ["text-success","text-danger"],    // 对应上面的样式 
-  pipes: 'auditState', // 管道过滤 例如 1->已激活 
-  // auditState 审核状态 areaPicture 省市区状态 typeState 机构名称
-  handle:[    //操作 数组长度对应相关按钮
-   {
-     type: "state",  // 操作状态
-     keys: ["生效","失效"],  // 对应的状态文字 tab切换
-     class: ["text-danger","text-success"], // 对应上面的样式
-     tag: "isActive", // 切换状态改变的key值 (参数)
-     url:"contract/enabled", // 改变状态请求的url (ajax)
-     params:[ // ajax入参
-       { enabled: "isActive" }, //key为参数 value为参数值
-       { id: "id" } 
-     ]
-   },
-   {
-     type: "url", // 跳转url
-     url: "/pages/merchants/contract/details", // 跳转地址
-     keys: ["详情"], // 按钮对应文字
-     class: ["text-primary"], // 按钮文字对应样式
-     params:[ //跳转带的url参数
-        { id: "id" }
-     ]
-   }
-]
-}),
-</pre>
-
-<h3 id="2-普通的Icons"><a href="#2-普通的Icons" class="headerlink" title="2. 普通的Icons"></a>2. 普通的Icons</h3><pre>
-new TextTable({
-    key: 'upload', // 无意义字段
-    class:'icon-common_modify_password', // icon样式 为空无Icon
-    label:'修改密码', // Icon文字
-    actions:{ // 操作
-      methods:'update', // Icon对应的方法 控制Icon的功能
-      // > add 跳转路由带id(需要选中)  > delete 删除 > update 更新,需要传入url > router 跳转 
-      // > auto 跳转带自定义参数(需要传入params) > upload 上传弹出层 > form 表单弹出层
-      url:'/pages/user/subject/update', // 需要跳转的url
-      params:'id' // 跳转路由需要传入的参数
-    },
-    order: 3 // 排序
-})
-</pre>
-
-
+        <h2 id="1-Table-config"><a href="#1-Table-config" class="headerlink" title="1. Table - config"></a>1. Table - config</h2><h3 id="1-表格数据信息-config"><a href="#1-表格数据信息-config" class="headerlink" title="1.表格数据信息 - config"></a>1.表格数据信息 - config</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">url:<span class="string">'org/list'</span>, <span class="comment">// 表格数据请求地址</span></div><div class="line">params:&#123; <span class="comment">// 参数</span></div><div class="line">  pageNumber:<span class="number">1</span>, <span class="comment">// 页码</span></div><div class="line">  pageSize:<span class="number">10</span> <span class="comment">// 每页数量</span></div><div class="line">  xxx:<span class="string">'xx'</span> <span class="comment">// 选填筛选参数</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="1-表格配置信息-tables"><a href="#1-表格配置信息-tables" class="headerlink" title="1.表格配置信息 - tables"></a>1.表格配置信息 - tables</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">style:&apos;table-form&apos; // 表单风格</div></pre></td></tr></table></figure>
+<h2 id="2-Table-参数"><a href="#2-Table-参数" class="headerlink" title="2. Table - 参数"></a>2. Table - 参数</h2><h3 id="1-普通的table"><a href="#1-普通的table" class="headerlink" title="1. 普通的table"></a>1. 普通的table</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">new TextTable(&#123;</div><div class="line">  key: 'appId',          // 匹配的键值名</div><div class="line">  value: '所属企业',     // 标题名称</div><div class="line">  order: 1,			  // 排序</div><div class="line">  filter:["未交费","已缴费"]    // 过滤器 对应字段 [1,2]</div><div class="line">  class: ["text-success","text-danger"],    // 对应上面的样式 </div><div class="line">  pipes: 'auditState', // 管道过滤 例如 1-&gt;已激活 </div><div class="line">  // auditState 审核状态 areaPicture 省市区状态 typeState 机构名称</div><div class="line">  handle:[    //操作 数组长度对应相关按钮</div><div class="line">   &#123;</div><div class="line">     type: "state",  // 操作状态</div><div class="line">     keys: ["生效","失效"],  // 对应的状态文字 tab切换</div><div class="line">     class: ["text-danger","text-success"], // 对应上面的样式</div><div class="line">     tag: "isActive", // 切换状态改变的key值 (参数)</div><div class="line">     url:"contract/enabled", // 改变状态请求的url (ajax)</div><div class="line">     params:[ // ajax入参</div><div class="line">       &#123; enabled: "isActive" &#125;, //key为参数 value为参数值</div><div class="line">       &#123; id: "id" &#125; </div><div class="line">     ]</div><div class="line">   &#125;,</div><div class="line">   &#123;</div><div class="line">     type: "url", // 跳转url</div><div class="line">     url: "/pages/merchants/contract/details", // 跳转地址</div><div class="line">     keys: ["详情"], // 按钮对应文字</div><div class="line">     class: ["text-primary"], // 按钮文字对应样式</div><div class="line">     params:[ //跳转带的url参数</div><div class="line">        &#123; id: "id" &#125;</div><div class="line">     ]</div><div class="line">   &#125;</div><div class="line">]</div><div class="line">&#125;),</div></pre></td></tr></table></figure>
+<h3 id="2-普通的Icons"><a href="#2-普通的Icons" class="headerlink" title="2. 普通的Icons"></a>2. 普通的Icons</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">new TextTable(&#123;</div><div class="line">    key: 'upload', // 无意义字段</div><div class="line">    class:'icon-common_modify_password', // icon样式 为空无Icon</div><div class="line">    label:'修改密码', // Icon文字</div><div class="line">    actions:&#123; // 操作</div><div class="line">      methods:'update', // Icon对应的方法 控制Icon的功能</div><div class="line">      // &gt; add 跳转路由带id(需要选中)  &gt; delete 删除 &gt; update 更新,需要传入url &gt; router 跳转 </div><div class="line">      // &gt; auto 跳转带自定义参数(需要传入params) &gt; upload 上传弹出层 &gt; form 表单弹出层</div><div class="line">      url:'/pages/user/subject/update', // 需要跳转的url</div><div class="line">      params:'id' // 跳转路由需要传入的参数</div><div class="line">    &#125;,</div><div class="line">    order: 3 // 排序</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -446,6 +420,27 @@ new TextTable({
     <div>
       
         
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>您的支持将是我前进的最大动力！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wxqrcode.jpg" alt="shadows WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/zfbqrcode.jpg" alt="shadows Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
     </div>
@@ -458,6 +453,14 @@ new TextTable({
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/angular2/" rel="tag"># angular2</a>
+          
+            <a href="/tags/redux/" rel="tag"># redux</a>
+          
+        </div>
       
 
       
@@ -501,6 +504,13 @@ new TextTable({
 
           
   <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
     
   </div>
 
@@ -555,7 +565,25 @@ new TextTable({
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -723,6 +751,26 @@ new TextTable({
 
   
 
+    
+      <script id="dsq-count-scr" src="https://litao-1.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://a1029563229.github.io/2017/05/25/ng2-admin-table/';
+          this.page.identifier = '2017/05/25/ng2-admin-table/';
+          this.page.title = '\'Table\'';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://litao-1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
 
 
 
@@ -741,10 +789,6 @@ new TextTable({
   
 
 
-
-
-
-  
 
 
 

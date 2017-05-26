@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="shadows" />
+  <meta name="keywords" content="angular2,redux," />
 
 
 
@@ -91,12 +91,13 @@
 
 
 <meta name="description" content="1. form-config1.表单配置信息 - config style:&apos;user-form&apos;, // 表单样式 &amp;gt; user-form 普通表单 &amp;gt; table-form table表单(用于筛选) &amp;gt; select-form 弹出层表单 url:&apos;config/add&apos;, // 表单提交地址（新增） updateUrl:&apos;config/update&apos;, // 表单更新地址（更新数据） ba">
+<meta name="keywords" content="angular2,redux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&#39;表单配置信息&#39;">
 <meta property="og:url" content="https://a1029563229.github.io/2017/05/25/ng2-admin-form/index.html">
 <meta property="og:site_name" content="shadows">
 <meta property="og:description" content="1. form-config1.表单配置信息 - config style:&apos;user-form&apos;, // 表单样式 &amp;gt; user-form 普通表单 &amp;gt; table-form table表单(用于筛选) &amp;gt; select-form 弹出层表单 url:&apos;config/add&apos;, // 表单提交地址（新增） updateUrl:&apos;config/update&apos;, // 表单更新地址（更新数据） ba">
-<meta property="og:updated_time" content="2017-05-25T10:55:33.919Z">
+<meta property="og:updated_time" content="2017-05-26T09:57:45.094Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="&#39;表单配置信息&#39;">
 <meta name="twitter:description" content="1. form-config1.表单配置信息 - config style:&apos;user-form&apos;, // 表单样式 &amp;gt; user-form 普通表单 &amp;gt; table-form table表单(用于筛选) &amp;gt; select-form 弹出层表单 url:&apos;config/add&apos;, // 表单提交地址（新增） updateUrl:&apos;config/update&apos;, // 表单更新地址（更新数据） ba">
@@ -333,8 +334,41 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ng2/" itemprop="url" rel="index">
+                    <span itemprop="name">ng2</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/25/ng2-admin-form/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/05/25/ng2-admin-form/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -568,6 +602,27 @@ new ButtonController({
     <div>
       
         
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>您的支持将是我前进的最大动力！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wxqrcode.jpg" alt="shadows WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/zfbqrcode.jpg" alt="shadows Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
     </div>
@@ -580,6 +635,14 @@ new ButtonController({
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/angular2/" rel="tag"># angular2</a>
+          
+            <a href="/tags/redux/" rel="tag"># redux</a>
+          
+        </div>
       
 
       
@@ -627,6 +690,13 @@ new ButtonController({
 
           
   <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
     
   </div>
 
@@ -681,7 +751,25 @@ new ButtonController({
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -849,6 +937,26 @@ new ButtonController({
 
   
 
+    
+      <script id="dsq-count-scr" src="https://litao-1.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://a1029563229.github.io/2017/05/25/ng2-admin-form/';
+          this.page.identifier = '2017/05/25/ng2-admin-form/';
+          this.page.title = '\'表单配置信息\'';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://litao-1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
 
 
 
@@ -867,10 +975,6 @@ new ButtonController({
   
 
 
-
-
-
-  
 
 
 

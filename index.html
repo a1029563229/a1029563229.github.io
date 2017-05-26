@@ -336,8 +336,41 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ng2/" itemprop="url" rel="index">
+                    <span itemprop="name">ng2</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/25/ng2-admin-table/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/05/25/ng2-admin-table/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -373,72 +406,15 @@
       
         
           
-            <h2 id="1-Table-config"><a href="#1-Table-config" class="headerlink" title="1. Table - config"></a>1. Table - config</h2><h3 id="1-表格数据信息-config"><a href="#1-表格数据信息-config" class="headerlink" title="1.表格数据信息 - config"></a>1.表格数据信息 - config</h3><pre>
-url:'org/list', // 表格数据请求地址
-params:{ // 参数
-  pageNumber:1, // 页码
-  pageSize:10 // 每页数量
-  xxx:'xx' // 选填筛选参数
-}
-</pre>
-
-<h3 id="1-表格配置信息-tables"><a href="#1-表格配置信息-tables" class="headerlink" title="1.表格配置信息 - tables"></a>1.表格配置信息 - tables</h3><pre>
-style:'table-form' // 表单风格
-</pre>
-
-<h2 id="2-Table-参数"><a href="#2-Table-参数" class="headerlink" title="2. Table - 参数"></a>2. Table - 参数</h2><h3 id="1-普通的table"><a href="#1-普通的table" class="headerlink" title="1. 普通的table"></a>1. 普通的table</h3><pre>
-new TextTable({
-  key: 'appId',          // 匹配的键值名
-  value: '所属企业',     // 标题名称
-  order: 1,              // 排序
-  filter:["未交费","已缴费"]    // 过滤器 对应字段 [1,2]
-  class: ["text-success","text-danger"],    // 对应上面的样式 
-  pipes: 'auditState', // 管道过滤 例如 1->已激活 
-  // auditState 审核状态 areaPicture 省市区状态 typeState 机构名称
-  handle:[    //操作 数组长度对应相关按钮
-   {
-     type: "state",  // 操作状态
-     keys: ["生效","失效"],  // 对应的状态文字 tab切换
-     class: ["text-danger","text-success"], // 对应上面的样式
-     tag: "isActive", // 切换状态改变的key值 (参数)
-     url:"contract/enabled", // 改变状态请求的url (ajax)
-     params:[ // ajax入参
-       { enabled: "isActive" }, //key为参数 value为参数值
-       { id: "id" } 
-     ]
-   },
-   {
-     type: "url", // 跳转url
-     url: "/pages/merchants/contract/details", // 跳转地址
-     keys: ["详情"], // 按钮对应文字
-     class: ["text-primary"], // 按钮文字对应样式
-     params:[ //跳转带的url参数
-        { id: "id" }
-     ]
-   }
-]
-}),
-</pre>
-
-<h3 id="2-普通的Icons"><a href="#2-普通的Icons" class="headerlink" title="2. 普通的Icons"></a>2. 普通的Icons</h3><pre>
-new TextTable({
-    key: 'upload', // 无意义字段
-    class:'icon-common_modify_password', // icon样式 为空无Icon
-    label:'修改密码', // Icon文字
-    actions:{ // 操作
-      methods:'update', // Icon对应的方法 控制Icon的功能
-      // > add 跳转路由带id(需要选中)  > delete 删除 > update 更新,需要传入url > router 跳转 
-      // > auto 跳转带自定义参数(需要传入params) > upload 上传弹出层 > form 表单弹出层
-      url:'/pages/user/subject/update', // 需要跳转的url
-      params:'id' // 跳转路由需要传入的参数
-    },
-    order: 3 // 排序
-})
-</pre>
-
-
-
-          
+          1. Table - config1.表格数据信息 - config123456url:'org/list', // 表格数据请求地址params:&#123; // 参数  pageNumber:1, // 页码  pageSize:10 // 每页数量  xxx:'xx' // 选填筛选参数&#
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/25/ng2-admin-table/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -522,8 +498,41 @@ new TextTable({
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ng2/" itemprop="url" rel="index">
+                    <span itemprop="name">ng2</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/25/ng2-admin-tableReducer/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/05/25/ng2-admin-tableReducer/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -559,101 +568,17 @@ new TextTable({
       
         
           
-            <h2 id="1-tableReducer-table-过滤表格数据（用于数据渲染）"><a href="#1-tableReducer-table-过滤表格数据（用于数据渲染）" class="headerlink" title="1. tableReducer - table 过滤表格数据（用于数据渲染）"></a>1. tableReducer - table 过滤表格数据（用于数据渲染）</h2><h3 id="1-TABLE-INFO-初始化表格数据"><a href="#1-TABLE-INFO-初始化表格数据" class="headerlink" title="1. TABLE_INFO - 初始化表格数据"></a>1. TABLE_INFO - 初始化表格数据</h3><pre>
+          1. tableReducer - table 过滤表格数据（用于数据渲染）1. TABLE_INFO - 初始化表格数据
 // 调用方法
-this.store$.dispatch({type:TABLE_INFO, payload:{data:result, filter:this.type, config:this.config}});
->> data 表格数据 filter 需要过滤的数据(例:appId)  config 表格的配置参数
-
-// 触发方法
-//取参数，设置接受源
-let tableData = Object.assign({},action.payload.data);
-let tableType = action.payload.filter ? [...action.payload.filter] : state.filter;
-let tableInfo:any = {
-    ...
-};
-
-//过滤数据
-for (let key in tableData) {
-    ...
-}
-
-//测试环境防止卡死
-...
-
-//过滤表格页码
-...
-
-//过滤主要内容数据
-tableInfo.data.forEach((data:any,i) => {
-    ...
-});
-return Object.assign({},tableInfo);
-</pre>
-
-
-<h3 id="2-SET-CONFIG-保存配置参数-弃用"><a href="#2-SET-CONFIG-保存配置参数-弃用" class="headerlink" title="2. SET_CONFIG - 保存配置参数(弃用)"></a>2. SET_CONFIG - 保存配置参数(弃用)</h3><pre>
-// 调用方法
-this.store$.dispatch({type:SET_CONFIG,payload:{config:params}});
->> config 表格的配置参数
-
-// 触发方法
-return Object.assign(state,{config:Object.assign(state.config, action.payload.config)});
-</pre>
-
-<h3 id="3-SELECT-ITEM-选中某个Item-单选"><a href="#3-SELECT-ITEM-选中某个Item-单选" class="headerlink" title="3. SELECT_ITEM - 选中某个Item(单选)"></a>3. SELECT_ITEM - 选中某个Item(单选)</h3><pre>
-// 调用方法
-this.store$.dispatch({type:'SELECT_ITEM',payload:{id}});
->> id Item的id
-
-// 触发方法
-return Object.assign(state,{config:Object.assign(state.config, action.payload.config)});
-</pre>
-
-<h3 id="4-SELECT-CHECK-多选"><a href="#4-SELECT-CHECK-多选" class="headerlink" title="4. SELECT_CHECK - 多选"></a>4. SELECT_CHECK - 多选</h3><pre>
-// 调用方法
-this.store$.dispatch({type:'TREE_INFO', payload:{data:result.pageData}});
->> item 选中项
-
-// 触发方法
-state.data.forEach(item => {
-    if (item.id == action.payload.item.id) {
-        item.selected = !item.selected
-    }
-});
-return Object.assign({},state);
-</pre>
-
-<h3 id="5-TREE-INFO-初始化树型数据"><a href="#5-TREE-INFO-初始化树型数据" class="headerlink" title="5. TREE_INFO - 初始化树型数据"></a>5. TREE_INFO - 初始化树型数据</h3><pre>
-// 调用方法
-this.store$.dispatch({type:'TREE_INFO', payload:{data:result.pageData}});
->> data 数据
-
-// 触发方法
-let treeData:any = {};
-treeData.data = [ ...action.payload.data ];
-treeData.data.forEach( ( item )=>{
-    item.isShow = false;        //显示层级
-    item.selected = false;        //选中权限按钮按钮
-    item.isHandle = false;        //显示操作
-    if( item.type === 2 && item.permission ){
-        item.permission = JSON.parse(item.permission);
-    }
-});
-
-return Object.assign({},treeData)
-</pre>
-
-<h3 id="5-DELETE-ITEM-删除某项表格数据"><a href="#5-DELETE-ITEM-删除某项表格数据" class="headerlink" title="5. DELETE_ITEM - 删除某项表格数据"></a>5. DELETE_ITEM - 删除某项表格数据</h3><pre>
-// 调用方法
-this.store$.dispatch({type:DELETE_ITEM,payload:id})
->> id 删除的id
-
-// 触发方法
-let data = state.data.filter(item => item.id != action.payload.id);
-state = Object.assign(state,{data})
-return Object.assign({},state);
-</pre>
-          
+this.store$.dispatch({type:TABLE_INFO, payload:{data:result, filter:this.type, c
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/25/ng2-admin-tableReducer/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -737,8 +662,41 @@ return Object.assign({},state);
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ng2/" itemprop="url" rel="index">
+                    <span itemprop="name">ng2</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/25/ng2-admin-methodsReducer/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/05/25/ng2-admin-methodsReducer/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -774,16 +732,17 @@ return Object.assign({},state);
       
         
           
-            <h2 id="1-methodsReducer-methods-用于控制弹出层"><a href="#1-methodsReducer-methods-用于控制弹出层" class="headerlink" title="1. methodsReducer - methods 用于控制弹出层"></a>1. methodsReducer - methods 用于控制弹出层</h2><h3 id="1-SELECT-SOME-弹出某个弹出层"><a href="#1-SELECT-SOME-弹出某个弹出层" class="headerlink" title="1. SELECT_SOME - 弹出某个弹出层"></a>1. SELECT_SOME - 弹出某个弹出层</h3><pre>
+          1. methodsReducer - methods 用于控制弹出层1. SELECT_SOME - 弹出某个弹出层
 // 调用方法（已关联icon methods触发)
-this.store$.dispatch({type:SELECT_SOME, payload:{selectType:'download',type:'download'}});
->> selectType 暂不明 type 弹出层的类型 
-
-// 触发方法
-return Object.assign(state,action.payload);
-</pre>
-
-          
+this.store$.dispatch({type:SELECT_SOME, payload:{selectType:'do
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/25/ng2-admin-methodsReducer/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -867,8 +826,41 @@ return Object.assign(state,action.payload);
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ng2/" itemprop="url" rel="index">
+                    <span itemprop="name">ng2</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/25/ng2-admin-formServiceReducer/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/05/25/ng2-admin-formServiceReducer/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -904,77 +896,17 @@ return Object.assign(state,action.payload);
       
         
           
-            <h2 id="1-formServiceReducer-formService-用于表单渲染前过滤"><a href="#1-formServiceReducer-formService-用于表单渲染前过滤" class="headerlink" title="1. formServiceReducer - formService 用于表单渲染前过滤"></a>1. formServiceReducer - formService 用于表单渲染前过滤</h2><h3 id="1-SET-QUESTION-初始化表单"><a href="#1-SET-QUESTION-初始化表单" class="headerlink" title="1. SET_QUESTION - 初始化表单"></a>1. SET_QUESTION - 初始化表单</h3><pre>
+          1. formServiceReducer - formService 用于表单渲染前过滤1. SET_QUESTION - 初始化表单
 // 调用方法
-this.store$.dispatch({type:SET_QUESTION, payload:service.getSelectQuestions()});
->> payload 表单初始模型
-
-// 触发方法
-return Object.assign(state,{data:[...action.payload]});
-</pre>
-
-
-<h3 id="2-SET-CITY-设置省市县用于地区选择"><a href="#2-SET-CITY-设置省市县用于地区选择" class="headerlink" title="2. SET_CITY - 设置省市县用于地区选择"></a>2. SET_CITY - 设置省市县用于地区选择</h3><pre>
-// 调用方法
-this.store$.dispatch({type:SET_CITY,payload:data.pageData});
->> payload 地区参数
-
-// 触发方法
-return Object.assign(state,{city: [...action.payload]});
-</pre>
-
-<h3 id="3-CHOOSE-ITEM-选择某一项（单用于弹出层选择某项）"><a href="#3-CHOOSE-ITEM-选择某一项（单用于弹出层选择某项）" class="headerlink" title="3. CHOOSE_ITEM - 选择某一项（单用于弹出层选择某项）"></a>3. CHOOSE_ITEM - 选择某一项（单用于弹出层选择某项）</h3><pre>
-// 调用方法
-this.store$.dispatch({type:CHOOSE_ITEM,payload:{name:this.chooseType,data}});
->> name 选择的类型（例:orgIds) data 弹出层表格数据
-
-// 触发方法
-let questions = state.data;
-let selectItem = questions.filter(question => question.key == action.payload.name)[0];
-let selectInfo = action.payload.data.filter(info => info.selected)[0];
-let i = questions.indexOf(selectItem);
-return Object.assign({}, {data:[
-    ...questions.slice(0,i),
-    Object.assign(selectItem,{prompt:selectInfo.name, value:[selectInfo.id]}),
-    ...questions.slice(i + 1)
-]});
-</pre>
-
-<h3 id="4-DELECT-PASSWORD-删除密码输入框"><a href="#4-DELECT-PASSWORD-删除密码输入框" class="headerlink" title="4. DELECT_PASSWORD - 删除密码输入框"></a>4. DELECT_PASSWORD - 删除密码输入框</h3><pre>
-// 调用方法
-this.store$.dispatch({type:DELECT_PASSWORD});
->> 
-
-// 触发方法
-return Object.assign({},{data:state.data.filter(question => !question.actions.isPassword)});
-</pre>
-
-<h3 id="5-SET-FROM-INFO-初始化表单后-过滤数据-模型"><a href="#5-SET-FROM-INFO-初始化表单后-过滤数据-模型" class="headerlink" title="5. SET _FROM _INFO - 初始化表单后 过滤数据/模型"></a>5. SET _FROM _INFO - 初始化表单后 过滤数据/模型</h3><pre>
-// 调用方法
-this.store$.dispatch({type:'TREE_INFO', payload:{data:result.pageData}});
->> data 数据
-
-// 触发方法
-let params:any = {};
-state.data.forEach((question,index) => {
-    switch (question.key) {
-         ...
-    }
-});
-return Object.assign(state,{data:state.data,params});
-</pre>
-
-<h3 id="5-DELETE-ITEM-删除某项表格数据"><a href="#5-DELETE-ITEM-删除某项表格数据" class="headerlink" title="5. DELETE_ITEM - 删除某项表格数据"></a>5. DELETE_ITEM - 删除某项表格数据</h3><pre>
-// 调用方法
-this.store$.dispatch({type:DELETE_ITEM,payload:id})
->> id 删除的id
-
-// 触发方法
-let data = state.data.filter(item => item.id != action.payload.id);
-state = Object.assign(state,{data})
-return Object.assign({},state);
-</pre>
-          
+this.store$.dispatch({type:SET_QUESTION, payload:service.getSelectQuestio
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/25/ng2-admin-formServiceReducer/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1058,8 +990,41 @@ return Object.assign({},state);
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ng2/" itemprop="url" rel="index">
+                    <span itemprop="name">ng2</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/25/ng2-admin-formReducer/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/05/25/ng2-admin-formReducer/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -1095,22 +1060,17 @@ return Object.assign({},state);
       
         
           
-            <h2 id="1-formReducer-form-过滤表单数据（用于已有数据渲染）"><a href="#1-formReducer-form-过滤表单数据（用于已有数据渲染）" class="headerlink" title="1. formReducer - form 过滤表单数据（用于已有数据渲染）"></a>1. formReducer - form 过滤表单数据（用于已有数据渲染）</h2><h3 id="1-CONFIG-INFO-过滤表单已有数据"><a href="#1-CONFIG-INFO-过滤表单已有数据" class="headerlink" title="1. CONFIG_INFO - 过滤表单已有数据"></a>1. CONFIG_INFO - 过滤表单已有数据</h3><pre>
+          1. formReducer - form 过滤表单数据（用于已有数据渲染）1. CONFIG_INFO - 过滤表单已有数据
 // 调用方法（已关联icon methods触发)
-this.store$.dispatch({type:CONFIG_INFO, payload: {data: questions, info:this.questions}});
->> data query得到的数据 info 当前表单数据类型
-
-// 触发方法
-let dataInfo = Object.assign({}, action.payload.data.dataInfo);
-let questions = action.payload.info;
-questions.forEach(question => {
-    switch(question.controlType) {
-        ...
-    }
-})
-return questions;
-</pre>
-          
+this.store$.dispatch({type:CONFIG_INFO, payload: {data: que
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/25/ng2-admin-formReducer/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1194,8 +1154,41 @@ return questions;
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ng2/" itemprop="url" rel="index">
+                    <span itemprop="name">ng2</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/25/ng2-admin-form/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/05/25/ng2-admin-form/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -1231,194 +1224,17 @@ return questions;
       
         
           
-            <h2 id="1-form-config"><a href="#1-form-config" class="headerlink" title="1. form-config"></a>1. form-config</h2><h3 id="1-表单配置信息-config"><a href="#1-表单配置信息-config" class="headerlink" title="1.表单配置信息 - config"></a>1.表单配置信息 - config</h3><pre>
+          1. form-config1.表单配置信息 - config
 style:'user-form', // 表单样式 > user-form 普通表单 > table-form table表单(用于筛选) > select-form 弹出层表单
-url:'config/add', // 表单提交地址（新增）
-updateUrl:'config/update', // 表单更新地址（更新数据）
-backUrl:'/pages/merchants/config', // 表单提交的回调地址
-infoUrl:'config/info' //已有数据的url（页面判断后添加）
-</pre>
-
-<h2 id="2-form-input"><a href="#2-form-input" class="headerlink" title="2. form-input"></a>2. form-input</h2><h3 id="1-普通的Input输入框-TextboxQuestion"><a href="#1-普通的Input输入框-TextboxQuestion" class="headerlink" title="1. 普通的Input输入框 - TextboxQuestion"></a>1. 普通的Input输入框 - TextboxQuestion</h3><pre>
-new TextboxQuestion({
-    key: 'qualificationExpiredDate', // 字段名
-    label: '资质审核时效', // 名称
-    required: true,    // 是否为必填
-    disabled: true, // 是否禁用
-    type:'text', // input类型
-    reg:regExp.number, // 验证正则 
-    // > number 数字正则 > tel 电话/手机正则 > email 邮箱正则 > text 汉字英文正则
-       > length 长度2-9 > account 银行卡号正则 file > 文件正则 > password 密码正则
-       > len50 长度50
-    prompt:'资质审核时效必须大于1个工作日', // 正则不通过的提示信息
-    actions:{ // 操作
-      count:'个工作日' // Input后缀
-    },
-    state: {
-      placeholder:'数字，数字越小越向前' // 默认文字
-    },
-    order: 8 // 排序
-}),
-</pre>
-
-<h3 id="2-普通的textarea-TextQuestion"><a href="#2-普通的textarea-TextQuestion" class="headerlink" title="2. 普通的textarea - TextQuestion"></a>2. 普通的textarea - TextQuestion</h3><pre>
-new TextQuestion({
-    key: 'majorBusiness',
-    label: '主要业务',
-    required:false,
-    value:'',
-    order: 5
-}),
-</pre>
-
-<h3 id="3-普通的radio-RadioQuestion"><a href="#3-普通的radio-RadioQuestion" class="headerlink" title="3. 普通的radio - RadioQuestion"></a>3. 普通的radio - RadioQuestion</h3><pre>
-new RadioQuestion({
-    key: 'type',
-    label: '机构类型',
-    required:true,
-    value:"1", // 默认选中的值，对应下方的key
-    options: [ // 选项 key为传递给接口的参数， value为显示的值
-      {key: '1',  value: '商家'},
-      {key: '2',  value: '机构'},
-      {key: '3',  value: '平台'}
-    ],
-    state:{ // 状态切换，选中某项需要切换表单状态时，传入此参数 需要组件中再进行配置
-      deleteItem:['parentSubject','childStyle']
-    },
-    order: 3
-})
-</pre>
-
-<h3 id="4-普通的select-DropdownQuestion"><a href="#4-普通的select-DropdownQuestion" class="headerlink" title="4. 普通的select - DropdownQuestion"></a>4. 普通的select - DropdownQuestion</h3><pre>
-new DropdownQuestion({
-    key: 'appName',
-    label: '平台显示名称',
-    required:true,
-    value:'测试平台20000015', // 默认选中的值，对应下方的key
-    options: [ // 选项 key为传递给接口的参数， value为显示的值
-      {key: '测试平台20000015',  value: '测试平台20000015'},
-      {key: '测试平台',  value: '测试平台'},
-      {key: '测试平台',  value: '测试平台'}
-    ],
-    order: 2
-}),
-</pre>
-
-<h3 id="5-单张图片上传-UploadQuestion"><a href="#5-单张图片上传-UploadQuestion" class="headerlink" title="5. 单张图片上传 - UploadQuestion"></a>5. 单张图片上传 - UploadQuestion</h3><pre>
-new UploadQuestion({
-    key: 'qrcode',
-    label: '二维码图片',
-    required:true,
-    state:{
-      description:'图片上传尺寸720*234', //图片上传说明
-      style:'144-68' // 图片上传尺寸
-    },
-    value:'',
-    order: 6
-}),
-</pre>
-
-<h3 id="6-多张图片上传-UploadBannerQuestion"><a href="#6-多张图片上传-UploadBannerQuestion" class="headerlink" title="6. 多张图片上传 - UploadBannerQuestion"></a>6. 多张图片上传 - UploadBannerQuestion</h3><pre>
-new UploadBannerQuestion({
-    key: 'banner',
-    label: '轮播banner(多选)',
-    value:'',
-    order: 7
-}),
-</pre>
-
-<h3 id="7-单-多文件上传-UploadFileQuestion"><a href="#7-单-多文件上传-UploadFileQuestion" class="headerlink" title="7. 单/多文件上传 - UploadFileQuestion"></a>7. 单/多文件上传 - UploadFileQuestion</h3><pre>
-new UploadFileQuestion({
-    key: 'agreementFile',
-    label: '服务文件附件',
-    required:true,
-    reg:regExp.file,
-    state:{ // 加入single参数 则为单文件上传
-      single:true
-    },
-    value:'',
-    order: 20
-}),
-</pre>
-
-<h3 id="8-文件下载以及上传-DownloadQuestion"><a href="#8-文件下载以及上传-DownloadQuestion" class="headerlink" title="8. 文件下载以及上传 - DownloadQuestion"></a>8. 文件下载以及上传 - DownloadQuestion</h3><pre>
-new DownloadQuestion({
-    key: 'agreementFile',
-    label: '服务文件附件',
-    required:true,
-    reg:regExp.file,
-    state:{
-      single:true,
-      download:{ // 下载文件
-        file:'assets/img/file/example.xlsx', // 下载地址
-        name:'example' // 下载文件名称
-      }
-    },
-    value:'',
-    order: 20
-})
-</pre>
-
-<h3 id="9-富文本编辑器-TextareaQuestion"><a href="#9-富文本编辑器-TextareaQuestion" class="headerlink" title="9. 富文本编辑器 - TextareaQuestion"></a>9. 富文本编辑器 - TextareaQuestion</h3><pre>
-new TextareaQuestion({
-    key: 'agreementContext',
-    label: '服务协议内容',
-    required: true,
-    value:'',
-    type:'text',
-    order: 21
-}),
-</pre>
-
-<h3 id="10-弹出层-选择机构-角色-SelectQuetion"><a href="#10-弹出层-选择机构-角色-SelectQuetion" class="headerlink" title="10. 弹出层(选择机构/角色) - SelectQuetion"></a>10. 弹出层(选择机构/角色) - SelectQuetion</h3><pre>
-new SelectQuetion({
-    key: 'roleIds',
-    label: '用户角色',
-    required: true,
-    value:'',
-    order: 0
-})
-</pre>
-
-<h3 id="11-时间选择-DateQuestion"><a href="#11-时间选择-DateQuestion" class="headerlink" title="11. 时间选择 - DateQuestion"></a>11. 时间选择 - DateQuestion</h3><pre>
-new DateQuestion({
-    key: 'startTime',
-    label: '开始时间',
-    required:true,
-    value:"",
-    actions:{
-      dateType:'dateTime' //时间类型 dateTime为时间选择 其他为日期选择
-    },
-    type:'text',
-    order: 19
-  }),
-</pre>
-
-
-<h2 id="3-form-button-（普通的表单不需要）"><a href="#3-form-button-（普通的表单不需要）" class="headerlink" title="3 form-button （普通的表单不需要）"></a>3 form-button （普通的表单不需要）</h2><h3 id="1-普通的button"><a href="#1-普通的button" class="headerlink" title="1.普通的button"></a>1.普通的button</h3><pre>
-new ButtonController({
-  key:'search', // 功能 submit为提交表单
-  label:'warning', // 按钮样式
-  value:'新增', // 按钮文字
-  actions:{ // 操作
-    label:'icon-common_add_3', // 按钮的icon 选填
-    methods:{ // 按钮的方法
-      type:'router', // 跳转路由
-      url:'/pages/merchants/config/add' // 跳转的url
-
-      type:'http', // http请求 用于与表单配合
-      url:'config/list' // 请求的url
-
-      type:'submit', // 提交表单 -- 一般用于弹出层
-      url:'org/list' // 提交的地址
-
-      type:'close', // 关闭弹出层
-      url:'/pages/system/org' // 暂无功能
-    }
-  }
-})
-</pre>
-          
+url:'config/add', // 表单提交地址
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/25/ng2-admin-form/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1502,8 +1318,41 @@ new ButtonController({
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ng2/" itemprop="url" rel="index">
+                    <span itemprop="name">ng2</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/25/ng2-admin-actions/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/05/25/ng2-admin-actions/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -1539,77 +1388,22 @@ new ButtonController({
       
         
           
-            <h1 id="1-几个常用的actions和Subject"><a href="#1-几个常用的actions和Subject" class="headerlink" title="1. 几个常用的actions和Subject"></a>1. 几个常用的actions和Subject</h1><p><br></p>
-<blockquote>
-<p>##1.actions(订阅后一定要在组件销毁时取消订阅)</p>
-</blockquote>
-<p><br></p>
-<h3 id="1-初始化表单并且过滤"><a href="#1-初始化表单并且过滤" class="headerlink" title="1.初始化表单并且过滤"></a>1.初始化表单并且过滤</h3><p><br></p>
-<pre>
-import { SET_QUESTION,SET_FROM_INFO } from '../../../reducers/actions/form-service.actions';
+          1. 几个常用的actions和Subject
 
-// 初始化表单数据
-this.store$.dispatch({type:SET_QUESTION,payload:service.getQuestions()});
-this.subscription = this.store$.select('formService').subscribe((questions:any) => {
-    this.advertQuestions = questions.data;
-});
-
-//过滤表单数据(通过用户信息)
-this.store$.dispatch({type:SET_FROM_INFO,payload:this.storage.retrieve('datainfo')});
-
-//过滤表单数据(通过数据字典)
-@Inject('dynamicFormService') private formService
-
-this.formService.getDictionary(15).subscribe((data:any) => {
-    this.store$.dispatch({type:SET_FROM_INFO,payload:{dictionary:15,data:data.pageData}});
-    this.subscription.unsubscribe();
-});
-
-//过滤表单数据（禁用某些）
-this.store$.dispatch({type:SET_FROM_INFO,payload:{disabledItem:['appId','userName','type']}});
-</pre>
-
-<p>###2.控制弹出层显示隐藏</p>
-<pre>
-//初始化弹出层
-let plugins$ = Observable.of(true).switchMap(selectBoo => {
-  this.store$.dispatch({type:SELECT_SOME, payload:{selectBoo,type:'table'}});
-  return this.store$.select('methods');
-});
-
-plugins$.subscribe((data:any) => {
-  this.plugins = data;
-})
-
-// 弹出弹出层
-this.store$.dispatch({type:SELECT_SOME, payload:{selectType:'table',type:'form', params:this.question.state}});
-
-//隐藏弹出层
-this.store$.dispatch({type:SELECT_SOME, payload:{selectType:'',selectControl:false,type:'table'}});
-</pre>
+##1.actions(订阅后一定要在组件销毁时取消订阅)
 
 
-<p><br></p>
-<blockquote>
-<p>##1.Subject(订阅后一定要在组件销毁时取消订阅)</p>
-</blockquote>
-<p><br></p>
-<p>###1.appService</p>
-<pre>
-@Inject('appOptionService') private appService
+1.初始化表单并且过滤
 
-// 发送数据
-this.appService.setAppId({
-  appId:this.appId
-});
-
-// 接受数据
-this.appIdSub = this.appService.getAppId()
-  .subscribe((params:any) => {
-    this.config.params.appId = params.appId;
-  });
-</pre>
-          
+import { SET_QUESTION,SET_FROM_INFO } from '../../../reducers/actions/form-servi
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/25/ng2-admin-actions/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1696,6 +1490,17 @@ this.appIdSub = this.appService.getAppId()
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/25/first/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/05/25/first/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1730,9 +1535,16 @@ this.appIdSub = this.appService.getAppId()
       
         
           
-            <p>测试文章</p>
+          测试文章
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/25/first/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1817,7 +1629,25 @@ this.appIdSub = this.appService.getAppId()
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -1965,6 +1795,14 @@ this.appIdSub = this.appService.getAppId()
 
   
 
+    
+      <script id="dsq-count-scr" src="https://litao-1.disqus.com/count.js" async></script>
+    
+
+    
+
+  
+
 
 
 
@@ -1983,10 +1821,6 @@ this.appIdSub = this.appService.getAppId()
   
 
 
-
-
-
-  
 
 
 

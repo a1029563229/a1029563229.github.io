@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="shadows" />
+  <meta name="keywords" content="angular2,redux," />
 
 
 
@@ -91,12 +91,13 @@
 
 
 <meta name="description" content="1. 几个常用的actions和Subject  ##1.actions(订阅后一定要在组件销毁时取消订阅)   1.初始化表单并且过滤  import { SET_QUESTION,SET_FROM_INFO } from &apos;../../../reducers/actions/form-service.actions&apos;;  // 初始化表单数据 this.store$.dispatch({typ">
+<meta name="keywords" content="angular2,redux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="&#39;常用的actions和Subject&#39;">
 <meta property="og:url" content="https://a1029563229.github.io/2017/05/25/ng2-admin-actions/index.html">
 <meta property="og:site_name" content="shadows">
 <meta property="og:description" content="1. 几个常用的actions和Subject  ##1.actions(订阅后一定要在组件销毁时取消订阅)   1.初始化表单并且过滤  import { SET_QUESTION,SET_FROM_INFO } from &apos;../../../reducers/actions/form-service.actions&apos;;  // 初始化表单数据 this.store$.dispatch({typ">
-<meta property="og:updated_time" content="2017-05-25T10:55:03.640Z">
+<meta property="og:updated_time" content="2017-05-26T09:57:42.376Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="&#39;常用的actions和Subject&#39;">
 <meta name="twitter:description" content="1. 几个常用的actions和Subject  ##1.actions(订阅后一定要在组件销毁时取消订阅)   1.初始化表单并且过滤  import { SET_QUESTION,SET_FROM_INFO } from &apos;../../../reducers/actions/form-service.actions&apos;;  // 初始化表单数据 this.store$.dispatch({typ">
@@ -333,8 +334,41 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ng2/" itemprop="url" rel="index">
+                    <span itemprop="name">ng2</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/25/ng2-admin-actions/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/05/25/ng2-admin-actions/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -451,6 +485,27 @@ this.appIdSub = this.appService.getAppId()
     <div>
       
         
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>您的支持将是我前进的最大动力！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wxqrcode.jpg" alt="shadows WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/zfbqrcode.jpg" alt="shadows Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
 
       
     </div>
@@ -463,6 +518,14 @@ this.appIdSub = this.appService.getAppId()
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/angular2/" rel="tag"># angular2</a>
+          
+            <a href="/tags/redux/" rel="tag"># redux</a>
+          
+        </div>
       
 
       
@@ -510,6 +573,13 @@ this.appIdSub = this.appService.getAppId()
 
           
   <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
     
   </div>
 
@@ -564,7 +634,25 @@ this.appIdSub = this.appService.getAppId()
           
 
           
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
           
 
         </nav>
@@ -732,6 +820,26 @@ this.appIdSub = this.appService.getAppId()
 
   
 
+    
+      <script id="dsq-count-scr" src="https://litao-1.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://a1029563229.github.io/2017/05/25/ng2-admin-actions/';
+          this.page.identifier = '2017/05/25/ng2-admin-actions/';
+          this.page.title = '\'常用的actions和Subject\'';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://litao-1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
 
 
 
@@ -750,10 +858,6 @@ this.appIdSub = this.appService.getAppId()
   
 
 
-
-
-
-  
 
 
 
