@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="angular2,redux," />
+  <meta name="keywords" content="vue2,webpack,vue-cli," />
 
 
 
@@ -90,17 +90,20 @@
 
 
 
-<meta name="description" content="1. form-config1.表单配置信息 - config style:&apos;user-form&apos;, // 表单样式 &amp;gt; user-form 普通表单 &amp;gt; table-form table表单(用于筛选) &amp;gt; select-form 弹出层表单 url:&apos;config/add&apos;, // 表单提交地址（新增） updateUrl:&apos;config/update&apos;, // 表单更新地址（更新数据） ba">
-<meta name="keywords" content="angular2,redux">
+<meta name="description" content="从零开始搭建一个vue项目 – vue-cli/cooking-cli（一） 1.vue-cli搭建一个可靠成熟的项目 1.介绍  vue-cli  我是去年六月份接触的vue1.0，当时还是个菜逼，当然现在也是，写了一年，抄代码的时候一直是copycopy，在别人的框架基础上开发，然后渐渐发现很多vue-start的模板都各有优点，所以慢慢的开始集合到了一起。  使用vue-cli从零开始搭建的">
+<meta name="keywords" content="vue2,webpack,vue-cli">
 <meta property="og:type" content="article">
-<meta property="og:title" content="&#39;表单配置信息&#39;">
-<meta property="og:url" content="https://a1029563229.github.io/2017/05/25/ng2-admin-form/index.html">
+<meta property="og:title" content="&#39;从零开始搭建一个vue项目 -- vue-cli&#x2F;cooking-cli（一）&#39;">
+<meta property="og:url" content="https://a1029563229.github.io/2017/05/27/vue-cli/index.html">
 <meta property="og:site_name" content="shadows">
-<meta property="og:description" content="1. form-config1.表单配置信息 - config style:&apos;user-form&apos;, // 表单样式 &amp;gt; user-form 普通表单 &amp;gt; table-form table表单(用于筛选) &amp;gt; select-form 弹出层表单 url:&apos;config/add&apos;, // 表单提交地址（新增） updateUrl:&apos;config/update&apos;, // 表单更新地址（更新数据） ba">
-<meta property="og:updated_time" content="2017-05-26T09:57:45.094Z">
+<meta property="og:description" content="从零开始搭建一个vue项目 – vue-cli/cooking-cli（一） 1.vue-cli搭建一个可靠成熟的项目 1.介绍  vue-cli  我是去年六月份接触的vue1.0，当时还是个菜逼，当然现在也是，写了一年，抄代码的时候一直是copycopy，在别人的框架基础上开发，然后渐渐发现很多vue-start的模板都各有优点，所以慢慢的开始集合到了一起。  使用vue-cli从零开始搭建的">
+<meta property="og:image" content="http://oqlani8i6.bkt.clouddn.com/blog/20170527/115645808.png?imageslim">
+<meta property="og:image" content="http://oqlani8i6.bkt.clouddn.com/blog/20170527/144342003.png?imageslim">
+<meta property="og:updated_time" content="2017-05-27T07:20:24.015Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="&#39;表单配置信息&#39;">
-<meta name="twitter:description" content="1. form-config1.表单配置信息 - config style:&apos;user-form&apos;, // 表单样式 &amp;gt; user-form 普通表单 &amp;gt; table-form table表单(用于筛选) &amp;gt; select-form 弹出层表单 url:&apos;config/add&apos;, // 表单提交地址（新增） updateUrl:&apos;config/update&apos;, // 表单更新地址（更新数据） ba">
+<meta name="twitter:title" content="&#39;从零开始搭建一个vue项目 -- vue-cli&#x2F;cooking-cli（一）&#39;">
+<meta name="twitter:description" content="从零开始搭建一个vue项目 – vue-cli/cooking-cli（一） 1.vue-cli搭建一个可靠成熟的项目 1.介绍  vue-cli  我是去年六月份接触的vue1.0，当时还是个菜逼，当然现在也是，写了一年，抄代码的时候一直是copycopy，在别人的框架基础上开发，然后渐渐发现很多vue-start的模板都各有优点，所以慢慢的开始集合到了一起。  使用vue-cli从零开始搭建的">
+<meta name="twitter:image" content="http://oqlani8i6.bkt.clouddn.com/blog/20170527/115645808.png?imageslim">
 
 
 
@@ -128,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="https://a1029563229.github.io/2017/05/25/ng2-admin-form/"/>
+  <link rel="canonical" href="https://a1029563229.github.io/2017/05/27/vue-cli/"/>
 
 
 
 
 
-  <title>'表单配置信息' | shadows</title>
+  <title>'从零开始搭建一个vue项目 -- vue-cli/cooking-cli（一）' | shadows</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -294,7 +297,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://a1029563229.github.io/2017/05/25/ng2-admin-form/">
+    <link itemprop="mainEntityOfPage" href="https://a1029563229.github.io/2017/05/27/vue-cli/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="shadows">
@@ -311,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">'表单配置信息'</h1>
+          <h1 class="post-title" itemprop="name headline">'从零开始搭建一个vue项目 -- vue-cli/cooking-cli（一）'</h1>
         
 
         <div class="post-meta">
@@ -323,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-25T18:53:35+08:00">
-                2017-05-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-27T15:16:40+08:00">
+                2017-05-27
               </time>
             
 
@@ -346,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ng2/" itemprop="url" rel="index">
-                    <span itemprop="name">ng2</span>
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
                   </a>
                 </span>
 
@@ -364,9 +367,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/05/25/ng2-admin-form/#comments" itemprop="discussionUrl">
+                <a href="/2017/05/27/vue-cli/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/25/ng2-admin-form/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/05/27/vue-cli/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -374,7 +377,7 @@
 
           
           
-             <span id="/2017/05/25/ng2-admin-form/" class="leancloud_visitors" data-flag-title="'表单配置信息'">
+             <span id="/2017/05/27/vue-cli/" class="leancloud_visitors" data-flag-title="'从零开始搭建一个vue项目 -- vue-cli/cooking-cli（一）'">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -402,193 +405,97 @@
       
 
       
-        <h2 id="1-form-config"><a href="#1-form-config" class="headerlink" title="1. form-config"></a>1. form-config</h2><h3 id="1-表单配置信息-config"><a href="#1-表单配置信息-config" class="headerlink" title="1.表单配置信息 - config"></a>1.表单配置信息 - config</h3><pre>
-style:'user-form', // 表单样式 > user-form 普通表单 > table-form table表单(用于筛选) > select-form 弹出层表单
-url:'config/add', // 表单提交地址（新增）
-updateUrl:'config/update', // 表单更新地址（更新数据）
-backUrl:'/pages/merchants/config', // 表单提交的回调地址
-infoUrl:'config/info' //已有数据的url（页面判断后添加）
-</pre>
+        <h1 id="从零开始搭建一个vue项目-–-vue-cli-cooking-cli（一）"><a href="#从零开始搭建一个vue项目-–-vue-cli-cooking-cli（一）" class="headerlink" title="从零开始搭建一个vue项目 – vue-cli/cooking-cli（一）"></a>从零开始搭建一个vue项目 – vue-cli/cooking-cli（一）</h1><p><br></p>
+<h2 id="1-vue-cli搭建一个可靠成熟的项目"><a href="#1-vue-cli搭建一个可靠成熟的项目" class="headerlink" title="1.vue-cli搭建一个可靠成熟的项目"></a>1.vue-cli搭建一个可靠成熟的项目</h2><p><br></p>
+<h3 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h3><p><br></p>
+<blockquote>
+<p><strong>vue-cli</strong></p>
+<ul>
+<li><p>我是去年六月份接触的vue1.0，当时还是个菜逼，当然现在也是，写了一年，抄代码的时候一直是copycopy，在别人的框架基础上开发，然后渐渐发现很多vue-start的模板都各有优点，所以慢慢的开始集合到了一起。</p>
+</li>
+<li><p>使用vue-cli从零开始搭建的话，一些webpack配置也可以让自己明白webpack其实可以做更多的事情。</p>
+</li>
+<li><p>在使用vue的过程中，转行做了ng4半年左右，对vue也有了更深的理解。</p>
+</li>
+<li><p>还有一个cooking-cli，配置更简单，假如不想看webpack的复杂配置，可以直接跳到第二篇文章。 </p>
+</li>
+</ul>
+</blockquote>
+<h3 id="2-配置node、webpack"><a href="#2-配置node、webpack" class="headerlink" title="2.配置node、webpack"></a>2.配置node、webpack</h3><p><br></p>
+<blockquote>
+<p><strong>node + webapack</strong></p>
+<ul>
+<li>webapck需要node提供服务，并且需要npm安装，所以先下载一个node</li>
+</ul>
+</blockquote>
+<p><br></p>
+<ul>
+<li>安装node</li>
+</ul>
+<p><a href="http://nodejs.cn/" target="_blank" rel="external">node下载</a></p>
+<p>mac推荐下载最新稳定版，windows下载最新版本</p>
+<p>下载完成后，打开命令行，输入npm -v 确认安装完成（安利一个命令行工具,同时具备git bash – <a href="http://conemu.github.io/" target="_blank" rel="external">ConEmu</a>）</p>
+<p>命令行全局安装webpack + vue-cli</p>
+<p><em>npm太慢的话，可以使用cnpm或者yarn（这步可以略过,下面是cnpm的安装，此后npm命令变成cnpm）</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</div></pre></td></tr></table></figure>
+<ul>
+<li>安装webpack + vue-cli</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g webpack vue-cli</div></pre></td></tr></table></figure>
+<h3 id="3-开始构建项目"><a href="#3-开始构建项目" class="headerlink" title="3.开始构建项目"></a>3.开始构建项目</h3><blockquote>
+<p><strong>vue-cli搭建项目</strong></p>
+<ul>
+<li><p>讲解部分webpack配置文件</p>
+</li>
+<li><p>讲解项目目录</p>
+</li>
+<li><p>配置路由以及路由文件</p>
+</li>
+<li><p>构建完成</p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>初始化项目</li>
+</ul>
+<p>打开cmd工具 cd /你的项目目录 例:cd f:/plugins</p>
+<p><code>vue init webpack vue-start</code></p>
+<p><img src="http://oqlani8i6.bkt.clouddn.com/blog/20170527/115645808.png?imageslim" alt="mark"></p>
+<p>这里其实可以一路回车，然后项目就构建好了，稍微讲解一下这些配置吧</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">? Project name vue-start //你的项目名称</div><div class="line">? Project description A Vue.js project // 你的项目描述</div><div class="line">? Author 小帅  // 作者的名称</div><div class="line">? Vue build standalone // 这个直接选前者，毕竟是推荐</div><div class="line">? Install vue-router? Yes // 是否安装vue-router 选是</div><div class="line">? Use ESLint to lint your code? No // 是否使用eslint管理代码，个人项目不推荐，不然你还会想办法关掉它</div><div class="line">? Setup unit tests with Karma + Mocha? No // 是否使用karma + mocha 否 因人而异吧，我基本不写测试代码</div><div class="line">? Setup e2e tests with Nightwatch? No // 是否安装e2e测试 否</div></pre></td></tr></table></figure>
+<p>然后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd vue-start // 进入项目目录</div><div class="line">npm i //安装项目依赖</div><div class="line">npm run dev // 开始！</div></pre></td></tr></table></figure></p>
+<p>我们直接来看看项目目录，分析一下，推荐编辑器vscode，<a href="https://juejin.im/post/592542c58d6d810058025d06" target="_blank" rel="external">这里有一大波vscode的插件</a>！</p>
+<p><img src="http://oqlani8i6.bkt.clouddn.com/blog/20170527/144342003.png?imageslim" alt="mark"></p>
+<blockquote>
+<p><strong>目录解析</strong></p>
+<ul>
+<li><p>build – 这个文件夹大部分是webpack的配置文件</p>
+</li>
+<li><p>config – 一些配置文件，比如配置监听端口</p>
+</li>
+<li><p>node_modules – 你的依赖包都在这里</p>
+</li>
+<li><p>src – 主工程文件夹，基本上所有的开发都在这个文件夹进行</p>
+</li>
+<li><p>static – 静态文件目录</p>
+</li>
+<li><p>package.json – 这个文件是项目的一些配置信息</p>
+</li>
+</ul>
+</blockquote>
+<p>这篇文章就不做更多的剖析了，直接进入实战吧</p>
+<p>npm run dev之后 会自动打开一个浏览器，但是我觉得这个设定我不喜欢，先把这个功能给禁了吧</p>
+<p>build/dev-server.js 73行开始<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">devMiddleware.waitUntilValid(() =&gt; &#123;</div><div class="line">  console.log(&apos;&gt; Listening at &apos; + uri + &apos;\n&apos;)</div><div class="line">  // when env is testing, don&apos;t need open it</div><div class="line">  if (autoOpenBrowser &amp;&amp; process.env.NODE_ENV !== &apos;testing&apos;) &#123;</div><div class="line">    opn(uri)</div><div class="line">  &#125;</div><div class="line">  _resolve()</div><div class="line">&#125;)</div><div class="line"></div><div class="line">把这行代码直接注释掉</div><div class="line">  // if (autoOpenBrowser &amp;&amp; process.env.NODE_ENV !== &apos;testing&apos;) &#123;</div><div class="line">  //   opn(uri)</div><div class="line">  // &#125;</div></pre></td></tr></table></figure></p>
+<p>现在打开浏览器 localhost:8080 项目已经可以运行了</p>
+<p>命令行ctrl + c退出进程 现在来试试打包</p>
+<p>先安装一个插件anywhere 这个是提供http服务的 直接npm i -g anywhere</p>
+<p>安装完成后直接来测试生产环境，先把生产环境配置好，以后省功夫</p>
+<p>cmd输入 npm run build &amp;&amp; anywhere</p>
+<p>然后浏览器输入 <a href="http://localhost:8000/dist/" target="_blank" rel="external">http://localhost:8000/dist/</a> 然后发现页面并没有预期的效果，审查元素可以看出js的路径都错了，这个时候需要修改一个配置文件</p>
+<p>config/index.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">module.exports = &#123;</div><div class="line">  build: &#123;</div><div class="line">    env: require(&apos;./prod.env&apos;),</div><div class="line">    index: path.resolve(__dirname, &apos;../dist/index.html&apos;),</div><div class="line">    assetsRoot: path.resolve(__dirname, &apos;../dist&apos;),</div><div class="line">    assetsSubDirectory: &apos;static&apos;,</div><div class="line">    assetsPublicPath: &apos;/&apos;,</div><div class="line">    productionSourceMap: true,</div><div class="line">    // Gzip off by default as many popular static hosts such as</div><div class="line">    // Surge or Netlify already gzip all static assets for you.</div><div class="line">    // Before setting to `true`, make sure to:</div><div class="line">    // npm install --save-dev compression-webpack-plugin</div><div class="line">    productionGzip: false,</div><div class="line">    productionGzipExtensions: [&apos;js&apos;, &apos;css&apos;],</div><div class="line">    // Run the build command with an extra argument to</div><div class="line">    // View the bundle analyzer report after build finishes:</div><div class="line">    // `npm run build --report`</div><div class="line">    // Set to `true` or `false` to always turn it on or off</div><div class="line">    bundleAnalyzerReport: process.env.npm_config_report</div><div class="line">  &#125;,</div><div class="line">  dev: &#123;</div><div class="line">    env: require(&apos;./dev.env&apos;),</div><div class="line">    port: 8080,</div><div class="line">    autoOpenBrowser: true,</div><div class="line">    assetsSubDirectory: &apos;static&apos;,</div><div class="line">    assetsPublicPath: &apos;/&apos;,</div><div class="line">    proxyTable: &#123;&#125;,</div><div class="line">    // CSS Sourcemaps off by default because relative paths are &quot;buggy&quot;</div><div class="line">    // with this option, according to the CSS-Loader README</div><div class="line">    // (https://github.com/webpack/css-loader#sourcemaps)</div><div class="line">    // In our experience, they generally work as expected,</div><div class="line">    // just be aware of this issue when enabling this option.</div><div class="line">    cssSourceMap: false</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">把build（生产环境）的assetsPublicPath修改为相对路径 也就是修改为</div><div class="line">assetsPublicPath: &apos;./&apos;</div><div class="line"></div><div class="line">然后重新运行一次 npm run build &amp;&amp; anywhere</div><div class="line"></div><div class="line">这个时候就可以看到和开发环境一样的效果了，这就是线上的环境</div></pre></td></tr></table></figure>
+<p>本篇文章就介绍到这里 下一篇文章将会介绍如何配置图片的路径，以及路由配置。</p>
 
-<h2 id="2-form-input"><a href="#2-form-input" class="headerlink" title="2. form-input"></a>2. form-input</h2><h3 id="1-普通的Input输入框-TextboxQuestion"><a href="#1-普通的Input输入框-TextboxQuestion" class="headerlink" title="1. 普通的Input输入框 - TextboxQuestion"></a>1. 普通的Input输入框 - TextboxQuestion</h3><pre>
-new TextboxQuestion({
-    key: 'qualificationExpiredDate', // 字段名
-    label: '资质审核时效', // 名称
-    required: true,    // 是否为必填
-    disabled: true, // 是否禁用
-    type:'text', // input类型
-    reg:regExp.number, // 验证正则 
-    // > number 数字正则 > tel 电话/手机正则 > email 邮箱正则 > text 汉字英文正则
-       > length 长度2-9 > account 银行卡号正则 file > 文件正则 > password 密码正则
-       > len50 长度50
-    prompt:'资质审核时效必须大于1个工作日', // 正则不通过的提示信息
-    actions:{ // 操作
-      count:'个工作日' // Input后缀
-    },
-    state: {
-      placeholder:'数字，数字越小越向前' // 默认文字
-    },
-    order: 8 // 排序
-}),
-</pre>
-
-<h3 id="2-普通的textarea-TextQuestion"><a href="#2-普通的textarea-TextQuestion" class="headerlink" title="2. 普通的textarea - TextQuestion"></a>2. 普通的textarea - TextQuestion</h3><pre>
-new TextQuestion({
-    key: 'majorBusiness',
-    label: '主要业务',
-    required:false,
-    value:'',
-    order: 5
-}),
-</pre>
-
-<h3 id="3-普通的radio-RadioQuestion"><a href="#3-普通的radio-RadioQuestion" class="headerlink" title="3. 普通的radio - RadioQuestion"></a>3. 普通的radio - RadioQuestion</h3><pre>
-new RadioQuestion({
-    key: 'type',
-    label: '机构类型',
-    required:true,
-    value:"1", // 默认选中的值，对应下方的key
-    options: [ // 选项 key为传递给接口的参数， value为显示的值
-      {key: '1',  value: '商家'},
-      {key: '2',  value: '机构'},
-      {key: '3',  value: '平台'}
-    ],
-    state:{ // 状态切换，选中某项需要切换表单状态时，传入此参数 需要组件中再进行配置
-      deleteItem:['parentSubject','childStyle']
-    },
-    order: 3
-})
-</pre>
-
-<h3 id="4-普通的select-DropdownQuestion"><a href="#4-普通的select-DropdownQuestion" class="headerlink" title="4. 普通的select - DropdownQuestion"></a>4. 普通的select - DropdownQuestion</h3><pre>
-new DropdownQuestion({
-    key: 'appName',
-    label: '平台显示名称',
-    required:true,
-    value:'测试平台20000015', // 默认选中的值，对应下方的key
-    options: [ // 选项 key为传递给接口的参数， value为显示的值
-      {key: '测试平台20000015',  value: '测试平台20000015'},
-      {key: '测试平台',  value: '测试平台'},
-      {key: '测试平台',  value: '测试平台'}
-    ],
-    order: 2
-}),
-</pre>
-
-<h3 id="5-单张图片上传-UploadQuestion"><a href="#5-单张图片上传-UploadQuestion" class="headerlink" title="5. 单张图片上传 - UploadQuestion"></a>5. 单张图片上传 - UploadQuestion</h3><pre>
-new UploadQuestion({
-    key: 'qrcode',
-    label: '二维码图片',
-    required:true,
-    state:{
-      description:'图片上传尺寸720*234', //图片上传说明
-      style:'144-68' // 图片上传尺寸
-    },
-    value:'',
-    order: 6
-}),
-</pre>
-
-<h3 id="6-多张图片上传-UploadBannerQuestion"><a href="#6-多张图片上传-UploadBannerQuestion" class="headerlink" title="6. 多张图片上传 - UploadBannerQuestion"></a>6. 多张图片上传 - UploadBannerQuestion</h3><pre>
-new UploadBannerQuestion({
-    key: 'banner',
-    label: '轮播banner(多选)',
-    value:'',
-    order: 7
-}),
-</pre>
-
-<h3 id="7-单-多文件上传-UploadFileQuestion"><a href="#7-单-多文件上传-UploadFileQuestion" class="headerlink" title="7. 单/多文件上传 - UploadFileQuestion"></a>7. 单/多文件上传 - UploadFileQuestion</h3><pre>
-new UploadFileQuestion({
-    key: 'agreementFile',
-    label: '服务文件附件',
-    required:true,
-    reg:regExp.file,
-    state:{ // 加入single参数 则为单文件上传
-      single:true
-    },
-    value:'',
-    order: 20
-}),
-</pre>
-
-<h3 id="8-文件下载以及上传-DownloadQuestion"><a href="#8-文件下载以及上传-DownloadQuestion" class="headerlink" title="8. 文件下载以及上传 - DownloadQuestion"></a>8. 文件下载以及上传 - DownloadQuestion</h3><pre>
-new DownloadQuestion({
-    key: 'agreementFile',
-    label: '服务文件附件',
-    required:true,
-    reg:regExp.file,
-    state:{
-      single:true,
-      download:{ // 下载文件
-        file:'assets/img/file/example.xlsx', // 下载地址
-        name:'example' // 下载文件名称
-      }
-    },
-    value:'',
-    order: 20
-})
-</pre>
-
-<h3 id="9-富文本编辑器-TextareaQuestion"><a href="#9-富文本编辑器-TextareaQuestion" class="headerlink" title="9. 富文本编辑器 - TextareaQuestion"></a>9. 富文本编辑器 - TextareaQuestion</h3><pre>
-new TextareaQuestion({
-    key: 'agreementContext',
-    label: '服务协议内容',
-    required: true,
-    value:'',
-    type:'text',
-    order: 21
-}),
-</pre>
-
-<h3 id="10-弹出层-选择机构-角色-SelectQuetion"><a href="#10-弹出层-选择机构-角色-SelectQuetion" class="headerlink" title="10. 弹出层(选择机构/角色) - SelectQuetion"></a>10. 弹出层(选择机构/角色) - SelectQuetion</h3><pre>
-new SelectQuetion({
-    key: 'roleIds',
-    label: '用户角色',
-    required: true,
-    value:'',
-    order: 0
-})
-</pre>
-
-<h3 id="11-时间选择-DateQuestion"><a href="#11-时间选择-DateQuestion" class="headerlink" title="11. 时间选择 - DateQuestion"></a>11. 时间选择 - DateQuestion</h3><pre>
-new DateQuestion({
-    key: 'startTime',
-    label: '开始时间',
-    required:true,
-    value:"",
-    actions:{
-      dateType:'dateTime' //时间类型 dateTime为时间选择 其他为日期选择
-    },
-    type:'text',
-    order: 19
-  }),
-</pre>
-
-
-<h2 id="3-form-button-（普通的表单不需要）"><a href="#3-form-button-（普通的表单不需要）" class="headerlink" title="3 form-button （普通的表单不需要）"></a>3 form-button （普通的表单不需要）</h2><h3 id="1-普通的button"><a href="#1-普通的button" class="headerlink" title="1.普通的button"></a>1.普通的button</h3><pre>
-new ButtonController({
-  key:'search', // 功能 submit为提交表单
-  label:'warning', // 按钮样式
-  value:'新增', // 按钮文字
-  actions:{ // 操作
-    label:'icon-common_add_3', // 按钮的icon 选填
-    methods:{ // 按钮的方法
-      type:'router', // 跳转路由
-      url:'/pages/merchants/config/add' // 跳转的url
-
-      type:'http', // http请求 用于与表单配合
-      url:'config/list' // 请求的url
-
-      type:'submit', // 提交表单 -- 一般用于弹出层
-      url:'org/list' // 提交的地址
-
-      type:'close', // 关闭弹出层
-      url:'/pages/system/org' // 暂无功能
-    }
-  }
-})
-</pre>
       
     </div>
 
@@ -638,9 +545,11 @@ new ButtonController({
       
         <div class="post-tags">
           
-            <a href="/tags/angular2/" rel="tag"># angular2</a>
+            <a href="/tags/vue2/" rel="tag"># vue2</a>
           
-            <a href="/tags/redux/" rel="tag"># redux</a>
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
+          
+            <a href="/tags/vue-cli/" rel="tag"># vue-cli</a>
           
         </div>
       
@@ -653,8 +562,8 @@ new ButtonController({
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/25/ng2-admin-actions/" rel="next" title="'常用的actions和Subject'">
-                <i class="fa fa-chevron-left"></i> '常用的actions和Subject'
+              <a href="/2017/05/25/ng2-admin-table/" rel="next" title="'Table'">
+                <i class="fa fa-chevron-left"></i> 'Table'
               </a>
             
           </div>
@@ -662,10 +571,6 @@ new ButtonController({
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/25/ng2-admin-formReducer/" rel="prev" title="'formReducer'">
-                'formReducer' <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -801,7 +706,7 @@ new ButtonController({
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-form-config"><span class="nav-number">1.</span> <span class="nav-text">1. form-config</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-表单配置信息-config"><span class="nav-number">1.1.</span> <span class="nav-text">1.表单配置信息 - config</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-form-input"><span class="nav-number">2.</span> <span class="nav-text">2. form-input</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-普通的Input输入框-TextboxQuestion"><span class="nav-number">2.1.</span> <span class="nav-text">1. 普通的Input输入框 - TextboxQuestion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-普通的textarea-TextQuestion"><span class="nav-number">2.2.</span> <span class="nav-text">2. 普通的textarea - TextQuestion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-普通的radio-RadioQuestion"><span class="nav-number">2.3.</span> <span class="nav-text">3. 普通的radio - RadioQuestion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-普通的select-DropdownQuestion"><span class="nav-number">2.4.</span> <span class="nav-text">4. 普通的select - DropdownQuestion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-单张图片上传-UploadQuestion"><span class="nav-number">2.5.</span> <span class="nav-text">5. 单张图片上传 - UploadQuestion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-多张图片上传-UploadBannerQuestion"><span class="nav-number">2.6.</span> <span class="nav-text">6. 多张图片上传 - UploadBannerQuestion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-单-多文件上传-UploadFileQuestion"><span class="nav-number">2.7.</span> <span class="nav-text">7. 单/多文件上传 - UploadFileQuestion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-文件下载以及上传-DownloadQuestion"><span class="nav-number">2.8.</span> <span class="nav-text">8. 文件下载以及上传 - DownloadQuestion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-富文本编辑器-TextareaQuestion"><span class="nav-number">2.9.</span> <span class="nav-text">9. 富文本编辑器 - TextareaQuestion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-弹出层-选择机构-角色-SelectQuetion"><span class="nav-number">2.10.</span> <span class="nav-text">10. 弹出层(选择机构/角色) - SelectQuetion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-时间选择-DateQuestion"><span class="nav-number">2.11.</span> <span class="nav-text">11. 时间选择 - DateQuestion</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-form-button-（普通的表单不需要）"><span class="nav-number">3.</span> <span class="nav-text">3 form-button （普通的表单不需要）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-普通的button"><span class="nav-number">3.1.</span> <span class="nav-text">1.普通的button</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#从零开始搭建一个vue项目-–-vue-cli-cooking-cli（一）"><span class="nav-number">1.</span> <span class="nav-text">从零开始搭建一个vue项目 – vue-cli/cooking-cli（一）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-vue-cli搭建一个可靠成熟的项目"><span class="nav-number">1.1.</span> <span class="nav-text">1.vue-cli搭建一个可靠成熟的项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-介绍"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-配置node、webpack"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.配置node、webpack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-开始构建项目"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.开始构建项目</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -944,9 +849,9 @@ new ButtonController({
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://a1029563229.github.io/2017/05/25/ng2-admin-form/';
-          this.page.identifier = '2017/05/25/ng2-admin-form/';
-          this.page.title = '\'表单配置信息\'';
+          this.page.url = 'https://a1029563229.github.io/2017/05/27/vue-cli/';
+          this.page.identifier = '2017/05/27/vue-cli/';
+          this.page.title = '\'从零开始搭建一个vue项目 -- vue-cli/cooking-cli（一）\'';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://litao-1.disqus.com/embed.js';
