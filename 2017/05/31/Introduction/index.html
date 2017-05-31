@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="angular2,redux," />
+  <meta name="keywords" content="vue2,webpack,vue-cli," />
 
 
 
@@ -90,17 +90,17 @@
 
 
 
-<meta name="description" content="1. Table - config1.表格数据信息 - config123456url:&apos;org/list&apos;, // 表格数据请求地址params:&amp;#123; // 参数  pageNumber:1, // 页码  pageSize:10 // 每页数量  xxx:&apos;xx&apos; // 选填筛选参数&amp;#125; 1.表格配置信息 - tables1style:&amp;apos;table-form&amp;apos">
-<meta name="keywords" content="angular2,redux">
+<meta name="description" content="Vue.js 服务端渲染指南 注意: 本篇指南要求Vue和相关依赖库的最低版本为:  vue &amp;amp; vue-server-renderer &amp;gt;= 2.3.0 vue-router &amp;gt;= 2.5.0 vue-loader &amp;gt;= 12.0.0 &amp;amp; vue-style-loader &amp;gt;= 3.0.0  如果你之前使用vue2.2做服务端渲染, 你会发现有一些代码的结">
+<meta name="keywords" content="vue2,webpack,vue-cli">
 <meta property="og:type" content="article">
-<meta property="og:title" content="&#39;Table&#39;">
-<meta property="og:url" content="https://a1029563229.github.io/2017/05/25/ng2-admin-table/index.html">
+<meta property="og:title" content="&#39;vue-ssr 服务端渲染(中文文档)&#39;">
+<meta property="og:url" content="https://a1029563229.github.io/2017/05/31/Introduction/index.html">
 <meta property="og:site_name" content="shadows">
-<meta property="og:description" content="1. Table - config1.表格数据信息 - config123456url:&apos;org/list&apos;, // 表格数据请求地址params:&amp;#123; // 参数  pageNumber:1, // 页码  pageSize:10 // 每页数量  xxx:&apos;xx&apos; // 选填筛选参数&amp;#125; 1.表格配置信息 - tables1style:&amp;apos;table-form&amp;apos">
-<meta property="og:updated_time" content="2017-05-26T10:02:56.201Z">
+<meta property="og:description" content="Vue.js 服务端渲染指南 注意: 本篇指南要求Vue和相关依赖库的最低版本为:  vue &amp;amp; vue-server-renderer &amp;gt;= 2.3.0 vue-router &amp;gt;= 2.5.0 vue-loader &amp;gt;= 12.0.0 &amp;amp; vue-style-loader &amp;gt;= 3.0.0  如果你之前使用vue2.2做服务端渲染, 你会发现有一些代码的结">
+<meta property="og:updated_time" content="2017-05-31T04:37:57.183Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="&#39;Table&#39;">
-<meta name="twitter:description" content="1. Table - config1.表格数据信息 - config123456url:&apos;org/list&apos;, // 表格数据请求地址params:&amp;#123; // 参数  pageNumber:1, // 页码  pageSize:10 // 每页数量  xxx:&apos;xx&apos; // 选填筛选参数&amp;#125; 1.表格配置信息 - tables1style:&amp;apos;table-form&amp;apos">
+<meta name="twitter:title" content="&#39;vue-ssr 服务端渲染(中文文档)&#39;">
+<meta name="twitter:description" content="Vue.js 服务端渲染指南 注意: 本篇指南要求Vue和相关依赖库的最低版本为:  vue &amp;amp; vue-server-renderer &amp;gt;= 2.3.0 vue-router &amp;gt;= 2.5.0 vue-loader &amp;gt;= 12.0.0 &amp;amp; vue-style-loader &amp;gt;= 3.0.0  如果你之前使用vue2.2做服务端渲染, 你会发现有一些代码的结">
 
 
 
@@ -128,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="https://a1029563229.github.io/2017/05/25/ng2-admin-table/"/>
+  <link rel="canonical" href="https://a1029563229.github.io/2017/05/31/Introduction/"/>
 
 
 
 
 
-  <title>'Table' | shadows</title>
+  <title>'vue-ssr 服务端渲染(中文文档)' | shadows</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -294,7 +294,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://a1029563229.github.io/2017/05/25/ng2-admin-table/">
+    <link itemprop="mainEntityOfPage" href="https://a1029563229.github.io/2017/05/31/Introduction/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="shadows">
@@ -311,7 +311,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">'Table'</h1>
+          <h1 class="post-title" itemprop="name headline">'vue-ssr 服务端渲染(中文文档)'</h1>
         
 
         <div class="post-meta">
@@ -323,8 +323,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-25T18:53:40+08:00">
-                2017-05-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-31T12:37:40+08:00">
+                2017-05-31
               </time>
             
 
@@ -346,8 +346,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ng2/" itemprop="url" rel="index">
-                    <span itemprop="name">ng2</span>
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
                   </a>
                 </span>
 
@@ -364,9 +364,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/05/25/ng2-admin-table/#comments" itemprop="discussionUrl">
+                <a href="/2017/05/31/Introduction/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/25/ng2-admin-table/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/05/31/Introduction/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -374,7 +374,7 @@
 
           
           
-             <span id="/2017/05/25/ng2-admin-table/" class="leancloud_visitors" data-flag-title="'Table'">
+             <span id="/2017/05/31/Introduction/" class="leancloud_visitors" data-flag-title="'vue-ssr 服务端渲染(中文文档)'">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -402,10 +402,41 @@
       
 
       
-        <h2 id="1-Table-config"><a href="#1-Table-config" class="headerlink" title="1. Table - config"></a>1. Table - config</h2><h3 id="1-表格数据信息-config"><a href="#1-表格数据信息-config" class="headerlink" title="1.表格数据信息 - config"></a>1.表格数据信息 - config</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">url:<span class="string">'org/list'</span>, <span class="comment">// 表格数据请求地址</span></div><div class="line">params:&#123; <span class="comment">// 参数</span></div><div class="line">  pageNumber:<span class="number">1</span>, <span class="comment">// 页码</span></div><div class="line">  pageSize:<span class="number">10</span> <span class="comment">// 每页数量</span></div><div class="line">  xxx:<span class="string">'xx'</span> <span class="comment">// 选填筛选参数</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="1-表格配置信息-tables"><a href="#1-表格配置信息-tables" class="headerlink" title="1.表格配置信息 - tables"></a>1.表格配置信息 - tables</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">style:&apos;table-form&apos; // 表单风格</div></pre></td></tr></table></figure>
-<h2 id="2-Table-参数"><a href="#2-Table-参数" class="headerlink" title="2. Table - 参数"></a>2. Table - 参数</h2><h3 id="1-普通的table"><a href="#1-普通的table" class="headerlink" title="1. 普通的table"></a>1. 普通的table</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">new TextTable(&#123;</div><div class="line">  key: 'appId',          // 匹配的键值名</div><div class="line">  value: '所属企业',     // 标题名称</div><div class="line">  order: 1,			  // 排序</div><div class="line">  filter:["未交费","已缴费"]    // 过滤器 对应字段 [1,2]</div><div class="line">  class: ["text-success","text-danger"],    // 对应上面的样式 </div><div class="line">  pipes: 'auditState', // 管道过滤 例如 1-&gt;已激活 </div><div class="line">  // auditState 审核状态 areaPicture 省市区状态 typeState 机构名称</div><div class="line">  handle:[    //操作 数组长度对应相关按钮</div><div class="line">   &#123;</div><div class="line">     type: "state",  // 操作状态</div><div class="line">     keys: ["生效","失效"],  // 对应的状态文字 tab切换</div><div class="line">     class: ["text-danger","text-success"], // 对应上面的样式</div><div class="line">     tag: "isActive", // 切换状态改变的key值 (参数)</div><div class="line">     url:"contract/enabled", // 改变状态请求的url (ajax)</div><div class="line">     params:[ // ajax入参</div><div class="line">       &#123; enabled: "isActive" &#125;, //key为参数 value为参数值</div><div class="line">       &#123; id: "id" &#125; </div><div class="line">     ]</div><div class="line">   &#125;,</div><div class="line">   &#123;</div><div class="line">     type: "url", // 跳转url</div><div class="line">     url: "/pages/merchants/contract/details", // 跳转地址</div><div class="line">     keys: ["详情"], // 按钮对应文字</div><div class="line">     class: ["text-primary"], // 按钮文字对应样式</div><div class="line">     params:[ //跳转带的url参数</div><div class="line">        &#123; id: "id" &#125;</div><div class="line">     ]</div><div class="line">   &#125;</div><div class="line">]</div><div class="line">&#125;),</div></pre></td></tr></table></figure>
-<h3 id="2-普通的Icons"><a href="#2-普通的Icons" class="headerlink" title="2. 普通的Icons"></a>2. 普通的Icons</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">new TextTable(&#123;</div><div class="line">    key: 'upload', // 无意义字段</div><div class="line">    class:'icon-common_modify_password', // icon样式 为空无Icon</div><div class="line">    label:'修改密码', // Icon文字</div><div class="line">    actions:&#123; // 操作</div><div class="line">      methods:'update', // Icon对应的方法 控制Icon的功能</div><div class="line">      // &gt; add 跳转路由带id(需要选中)  &gt; delete 删除 &gt; update 更新,需要传入url &gt; router 跳转 </div><div class="line">      // &gt; auto 跳转带自定义参数(需要传入params) &gt; upload 上传弹出层 &gt; form 表单弹出层</div><div class="line">      url:'/pages/user/subject/update', // 需要跳转的url</div><div class="line">      params:'id' // 跳转路由需要传入的参数</div><div class="line">    &#125;,</div><div class="line">    order: 3 // 排序</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+        <h1 id="Vue-js-服务端渲染指南"><a href="#Vue-js-服务端渲染指南" class="headerlink" title="Vue.js 服务端渲染指南"></a>Vue.js 服务端渲染指南</h1><blockquote>
+<p><strong>注意:</strong> 本篇指南要求Vue和相关依赖库的最低版本为:</p>
+<ul>
+<li>vue &amp; vue-server-renderer &gt;= 2.3.0</li>
+<li>vue-router &gt;= 2.5.0</li>
+<li>vue-loader &gt;= 12.0.0 &amp; vue-style-loader &gt;= 3.0.0</li>
+</ul>
+<p>如果你之前使用vue2.2做服务端渲染, 你会发现有一些代码的结构和现在的有一点 <a href="./structure.md">差异</a> (新版的 <a href="./api.md#runinnewcontext">runInNewContext</a>选项应设为 <code>false</code>). 你现有的项目可以继续运行, 但我们建议迁移到最新版本.</p>
+</blockquote>
+<h2 id="什么是服务端渲染-SSR"><a href="#什么是服务端渲染-SSR" class="headerlink" title="什么是服务端渲染 (SSR)?"></a>什么是服务端渲染 (SSR)?</h2><p>Vue.js是用来构建客户端应用的一个框架. 默认情况下，Vue的组件操作和生产dom，然后输出给浏览器. 然而，它也可以读取相同的组件插入到服务器的Html字符串中,然后直接发送给浏览器, 最后我们的’混合应用’变成一个完全交互式的应用程序展现在客户端.</p>
+<p>服务端vue应用也可以认为是“同构”或者“通用”, 从这个意义上来说，你的一套代码可以同时在客户端和服务端运行。</p>
+<h2 id="为什么使用SSR"><a href="#为什么使用SSR" class="headerlink" title="为什么使用SSR?"></a>为什么使用SSR?</h2><p>相比较传统的SPA应用 (单页面应用), SSR的主要优势在于:</p>
+<ul>
+<li><p>更好的 SEO, 搜索引擎的爬虫会抓取完全渲染的页面.</p>
+<p>直到现在, Google和Bing能够很好的同步索引Javascript应用. 同步是个关键词. 如果你的应用有一个加载页, 然后通过Ajax来获取主要内容, 爬虫不会等待他们完成. 这就意味着如果你要在页面异步获取内容的情况做SEO优化的话, SSR是至关重要的.</p>
+</li>
+<li><p>更快的加载速度, 尤其是在网速慢或者设备不好的情况下. 服务端渲染不需要等待所有js下载并且执行就能直接展示页面, 所以你的用户能直接看到一个完全渲染好的页面，这样会有更好的用户体验.对于时间转换为效率的应用程序来说，服务端渲染更为重要.</p>
+</li>
+</ul>
+<p>考虑使用SSR时也有一些需要权衡的因素:</p>
+<ul>
+<li><p>开发的限制. 有一些浏览器特定代码只能在某些生命周期钩子才能使用; 有一些外部依赖库需要特别处理之后才能在服务端应用程序上运行.</p>
+</li>
+<li><p>涉及到构建和部署要求.普通的SPA应用可以部署在任何服务器，但是SSR应用只能运行在Node的环境.</p>
+</li>
+<li><p>更大的服务器荷载. 在Node上，比起加载几个静态文件，加载一个完整的应用程序需要更多的CPU占用率, 所以，如果你希望有更快的速度, 需要准备相应的服务器负载和明确的使用缓存策略。</p>
+</li>
+</ul>
+<p>给你的应用使用SSR之前, 首先你需要想清楚你是否真的需要它. 这主要取决于你的应用是否很需要“时间转化为效率”. 举个栗子, 如果你只是制作一个内网应用，几百毫秒的加载速度提升并没有什么作用， 使用SSR纯属多此一举. 但是, 加载速度对于你来说非常重要的话, SSR能帮你实现最佳的初始负载性能.</p>
+<h2 id="SSR-vs-预渲染（Prerendering）"><a href="#SSR-vs-预渲染（Prerendering）" class="headerlink" title="SSR vs 预渲染（Prerendering）"></a>SSR vs 预渲染（Prerendering）</h2><p>如果你只是用服务端渲染来改善一个少数的营销页面（如 首页，关于，联系 等等）的SEO，那你可以用预渲染替换。预渲染不像服务器渲染那样即时编译HTML,预渲染只是在构建时为了特定的路由生成特定的几个静态页面。其优势是预渲染的设置更加简单，可以保持前端是一个完整的静态站。</p>
+<p>你用webpack可以很简单地通过prerender-spa-plugin来添加预渲染，它被广泛地用在Vue应用上 - 事实上，创建者也是Vue核心团队成员之一。</p>
+<h2 id="关于本篇文章"><a href="#关于本篇文章" class="headerlink" title="关于本篇文章"></a>关于本篇文章</h2><p>本篇文章重点是讲解如何在Node服务器上运行SSR SPA应用. 混合与其他后台设置Vue SSR是一个自己的主题，不包括在本指南。</p>
+<p>本篇文章会比较深入，假设你已经熟悉Vue, 并且掌握一些关于Node和Webpack的知识. 如果你想要一个更高级的解决方案, 你可以去试试 <a href="http://nuxtjs.org/" target="_blank" rel="external">Nuxt.js</a>. 它和Vue的栈是差不多的，但是有更多的样板, 并且提供一些额外的功能，例如生成静态站点. 然而，如果你需要控制你的项目结构，它可能不太适用，总而言之，本篇文章能让你更好的理解它的工作原理。</p>
+<p>如果你一直读下去的话, 你可以结合这个 <a href="https://github.com/vuejs/vue-hackernews-2.0/" target="_blank" rel="external">HackerNews Demo</a>来学习,这个demo涵盖了本篇文章的大部分知识点.</p>
+<p>最后, 本篇文章的解决方案也不是明确的 - 我们可以通过它来更好的工作, 但是我们会优化他的.文档会在以后继续更新 - 并且你可以参与其中!</p>
 
       
     </div>
@@ -456,9 +487,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/angular2/" rel="tag"># angular2</a>
+            <a href="/tags/vue2/" rel="tag"># vue2</a>
           
-            <a href="/tags/redux/" rel="tag"># redux</a>
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
+          
+            <a href="/tags/vue-cli/" rel="tag"># vue-cli</a>
           
         </div>
       
@@ -471,8 +504,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/25/ng2-admin-tableReducer/" rel="next" title="'tableReducer'">
-                <i class="fa fa-chevron-left"></i> 'tableReducer'
+              <a href="/2017/05/27/vue-cli/" rel="next" title="'从零开始搭建一个vue项目 -- vue-cli/cooking-cli（一）'">
+                <i class="fa fa-chevron-left"></i> '从零开始搭建一个vue项目 -- vue-cli/cooking-cli（一）'
               </a>
             
           </div>
@@ -480,10 +513,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/27/vue-cli/" rel="prev" title="'从零开始搭建一个vue项目 -- vue-cli/cooking-cli（一）'">
-                '从零开始搭建一个vue项目 -- vue-cli/cooking-cli（一）' <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -619,7 +648,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Table-config"><span class="nav-number">1.</span> <span class="nav-text">1. Table - config</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-表格数据信息-config"><span class="nav-number">1.1.</span> <span class="nav-text">1.表格数据信息 - config</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-表格配置信息-tables"><span class="nav-number">1.2.</span> <span class="nav-text">1.表格配置信息 - tables</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Table-参数"><span class="nav-number">2.</span> <span class="nav-text">2. Table - 参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-普通的table"><span class="nav-number">2.1.</span> <span class="nav-text">1. 普通的table</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-普通的Icons"><span class="nav-number">2.2.</span> <span class="nav-text">2. 普通的Icons</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Vue-js-服务端渲染指南"><span class="nav-number">1.</span> <span class="nav-text">Vue.js 服务端渲染指南</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是服务端渲染-SSR"><span class="nav-number">1.1.</span> <span class="nav-text">什么是服务端渲染 (SSR)?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么使用SSR"><span class="nav-number">1.2.</span> <span class="nav-text">为什么使用SSR?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSR-vs-预渲染（Prerendering）"><span class="nav-number">1.3.</span> <span class="nav-text">SSR vs 预渲染（Prerendering）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于本篇文章"><span class="nav-number">1.4.</span> <span class="nav-text">关于本篇文章</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -762,9 +791,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'https://a1029563229.github.io/2017/05/25/ng2-admin-table/';
-          this.page.identifier = '2017/05/25/ng2-admin-table/';
-          this.page.title = '\'Table\'';
+          this.page.url = 'https://a1029563229.github.io/2017/05/31/Introduction/';
+          this.page.identifier = '2017/05/31/Introduction/';
+          this.page.title = '\'vue-ssr 服务端渲染(中文文档)\'';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://litao-1.disqus.com/embed.js';
