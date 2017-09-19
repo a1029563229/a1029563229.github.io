@@ -100,8 +100,7 @@
 <meta property="og:image" content="http://oqlani8i6.bkt.clouddn.com/blog/20170531/185226414.png?imageslim">
 <meta property="og:image" content="http://oqlani8i6.bkt.clouddn.com/blog/20170531/185922521.png?imageslim">
 <meta property="og:image" content="http://oqlani8i6.bkt.clouddn.com/blog/20170531/191327696.png?imageslim">
-<meta property="og:image" content="http://oqlani8i6.bkt.clouddn.com/blog/20170527/152954437.jpg">
-<meta property="og:updated_time" content="2017-05-31T11:32:58.376Z">
+<meta property="og:updated_time" content="2017-07-06T02:16:05.907Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="&#39;从零开始搭建一个vue项目 -- vue-cli&#x2F;cooking-cli（二）&#39;">
 <meta name="twitter:description" content="从零开始搭建一个vue项目 – vue-cli/cooking-cli（二）1.配置图片路径图片的路径有多种方法，第一种是直接把图片放在根目录的 static 文件夹下，引入的路径是1/staic/img ，这种方法的缺点在于webpack不会识别根目录，所以发布的时候需要手动把图片文件夹添加进去 第二种方法是配置webpack， 在/build/webpack.base.conf.js文件中有一">
@@ -444,7 +443,6 @@
 <p>然后我们把 <code>router</code> 文件夹的index.js改写一下，把我们的json导入<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span>;</div><div class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">'vue-router'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> * <span class="keyword">as</span> page <span class="keyword">from</span> <span class="string">'../pages'</span>; <span class="comment">// 这里可以把我们上面的组件全部重新导入</span></div><div class="line">Vue.use(VueRouter);</div><div class="line"></div><div class="line"><span class="keyword">import</span> NavConfig <span class="keyword">from</span> <span class="string">'./router.json'</span>; <span class="comment">//导入我们的json</span></div><div class="line"></div><div class="line"><span class="comment">// 返回一个新的路由配置</span></div><div class="line"><span class="keyword">const</span> getChild = <span class="function">(<span class="params">component</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">        <span class="attr">path</span>:component.path,</div><div class="line">        <span class="attr">component</span>:page[component.component],</div><div class="line">        <span class="attr">name</span>:component.name,</div><div class="line">        <span class="attr">children</span>:component.children || []</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 使用json生成全新的route</span></div><div class="line"><span class="keyword">const</span> registerRoute = <span class="function">(<span class="params">config,parent</span>) =&gt;</span> &#123;</div><div class="line">    <span class="keyword">let</span> route = [&#123;</div><div class="line">        <span class="string">"path"</span>: <span class="string">"/"</span>,</div><div class="line">        <span class="string">"redirect"</span>: <span class="string">"/home"</span> </div><div class="line">    &#125;];</div><div class="line">    config.forEach(<span class="function"><span class="params">child</span> =&gt;</span> &#123;</div><div class="line">        <span class="keyword">if</span> (child.children &amp;&amp; child.children.length &gt; <span class="number">0</span>) &#123;</div><div class="line">            child.children = child.children.map(<span class="function"><span class="params">item</span> =&gt;</span> getChild(item));</div><div class="line">        &#125;</div><div class="line">        route.push(getChild(child));</div><div class="line">    &#125;);</div><div class="line">    <span class="keyword">return</span> route;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> routes = registerRoute(NavConfig);</div><div class="line"></div><div class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</div><div class="line">    routes</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> router;</div></pre></td></tr></table></figure></p>
 <p>这个时候假如需要新增一个路由，只需要修改<code>router.json</code>文件即可（记得在pages导出模块，否则会报错）</p>
 <p>还有第三章，待续。</p>
-<p>一个团结互助的讨论组，专注前端三十年！<br><br><br><img src="http://oqlani8i6.bkt.clouddn.com/blog/20170527/152954437.jpg" alt="mark"></p>
 
       
     </div>
@@ -514,8 +512,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/31/Introduction/" rel="next" title="'vue-ssr 服务端渲染(中文文档)'">
-                <i class="fa fa-chevron-left"></i> 'vue-ssr 服务端渲染(中文文档)'
+              <a href="/2017/05/27/vue-cli/" rel="next" title="'从零开始搭建一个vue项目 -- vue-cli/cooking-cli（一）'">
+                <i class="fa fa-chevron-left"></i> '从零开始搭建一个vue项目 -- vue-cli/cooking-cli（一）'
               </a>
             
           </div>
@@ -523,6 +521,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/19/ng2-admin-1/" rel="prev" title="'使用ng2-admin搭建成熟可靠的后台系统 -- ng2-admin（一）'">
+                '使用ng2-admin搭建成熟可靠的后台系统 -- ng2-admin（一）' <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -601,7 +603,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -612,7 +614,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
