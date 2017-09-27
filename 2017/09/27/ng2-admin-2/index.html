@@ -1,0 +1,1004 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="angular,ng2-admin," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="使用ng2-admin搭建成熟可靠的后台系统 – ng2-admin（二） 1.构建动态表单  构建一个动态表单，动态生成控件，验证规则。  创建一个input组件，一个select组件  将组件注入到页面中并显示     创建组件目录 前半部分直接借鉴官方文档的写法，后期开启个性化定制后，功能强大！  在 theme/components 目录下创建一个文件夹 dynamic-form  项目目">
+<meta name="keywords" content="angular,ng2-admin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&#39;使用ng2-admin搭建成熟可靠的后台系统 -- ng2-admin（二）&#39;">
+<meta property="og:url" content="https://a1029563229.github.io/2017/09/27/ng2-admin-2/index.html">
+<meta property="og:site_name" content="shadows">
+<meta property="og:description" content="使用ng2-admin搭建成熟可靠的后台系统 – ng2-admin（二） 1.构建动态表单  构建一个动态表单，动态生成控件，验证规则。  创建一个input组件，一个select组件  将组件注入到页面中并显示     创建组件目录 前半部分直接借鉴官方文档的写法，后期开启个性化定制后，功能强大！  在 theme/components 目录下创建一个文件夹 dynamic-form  项目目">
+<meta property="og:image" content="http://dev.vpclub.cn/group1/M00/00/21/rBAFJFnLeQWAaN-xAAA7D1Z9hXs713.png">
+<meta property="og:image" content="http://dev.vpclub.cn/group1/M00/00/21/rBAFJFnLgHaAd9uRAAFEpzM2gbw801.png">
+<meta property="og:image" content="http://dev.vpclub.cn/group1/M00/00/21/rBAFJFnLgKWAAi7UAABh7tteWY8746.png">
+<meta property="og:image" content="http://dev.vpclub.cn/group1/M00/00/21/rBAFJFnLgpiAKU98AAQ9mXly9FI602.png">
+<meta property="og:updated_time" content="2017-09-27T11:05:01.209Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="&#39;使用ng2-admin搭建成熟可靠的后台系统 -- ng2-admin（二）&#39;">
+<meta name="twitter:description" content="使用ng2-admin搭建成熟可靠的后台系统 – ng2-admin（二） 1.构建动态表单  构建一个动态表单，动态生成控件，验证规则。  创建一个input组件，一个select组件  将组件注入到页面中并显示     创建组件目录 前半部分直接借鉴官方文档的写法，后期开启个性化定制后，功能强大！  在 theme/components 目录下创建一个文件夹 dynamic-form  项目目">
+<meta name="twitter:image" content="http://dev.vpclub.cn/group1/M00/00/21/rBAFJFnLeQWAaN-xAAA7D1Z9hXs713.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://a1029563229.github.io/2017/09/27/ng2-admin-2/"/>
+
+
+
+
+
+  <title>'使用ng2-admin搭建成熟可靠的后台系统 -- ng2-admin（二）' | shadows</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">shadows</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">the blog of shadows</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://a1029563229.github.io/2017/09/27/ng2-admin-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shadows">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shadows">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">'使用ng2-admin搭建成熟可靠的后台系统 -- ng2-admin（二）'</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-27T19:00:40+08:00">
+                2017-09-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/angular/" itemprop="url" rel="index">
+                    <span itemprop="name">angular</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/09/27/ng2-admin-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/09/27/ng2-admin-2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/09/27/ng2-admin-2/" class="leancloud_visitors" data-flag-title="'使用ng2-admin搭建成熟可靠的后台系统 -- ng2-admin（二）'">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="使用ng2-admin搭建成熟可靠的后台系统-–-ng2-admin（二）"><a href="#使用ng2-admin搭建成熟可靠的后台系统-–-ng2-admin（二）" class="headerlink" title="使用ng2-admin搭建成熟可靠的后台系统 – ng2-admin（二）"></a>使用ng2-admin搭建成熟可靠的后台系统 – ng2-admin（二）</h1><p><br></p>
+<h2 id="1-构建动态表单"><a href="#1-构建动态表单" class="headerlink" title="1.构建动态表单"></a>1.构建动态表单</h2><blockquote>
+<ul>
+<li><p>构建一个动态表单，动态生成控件，验证规则。</p>
+</li>
+<li><p>创建一个input组件，一个select组件</p>
+</li>
+<li><p>将组件注入到页面中并显示</p>
+</li>
+</ul>
+</blockquote>
+<p><br></p>
+<h3 id="创建组件目录"><a href="#创建组件目录" class="headerlink" title="创建组件目录"></a>创建组件目录</h3><blockquote>
+<p>前半部分直接借鉴官方文档的写法，后期开启个性化定制后，功能强大！</p>
+</blockquote>
+<p>在 <code>theme/components</code> 目录下创建一个文件夹 <code>dynamic-form</code> </p>
+<p>项目目录结构如下，下面跟着步骤一步一步来构建</p>
+<p><img src="http://dev.vpclub.cn/group1/M00/00/21/rBAFJFnLeQWAaN-xAAA7D1Z9hXs713.png" alt="mark"></p>
+<h3 id="创建对象模型"><a href="#创建对象模型" class="headerlink" title="创建对象模型"></a>创建对象模型</h3><p>我们需要定义一个对象模型，用来描述表单功能需要的场景。相关功能非常之多（类似于 <code>input</code> <code>select</code> )。</p>
+<p>先创建一个最基础的基类，名为 <code>QuestionBase</code>，文件为 <code>dynamic-form-base/question-base.ts</code></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> QuestionBase&lt;T&gt;&#123;</div><div class="line">    value: T; <span class="comment">// 值，类型可选</span></div><div class="line">    key: <span class="built_in">string</span>; <span class="comment">// 字段名</span></div><div class="line">    label: <span class="built_in">string</span>; <span class="comment">// 控件前的文字提示</span></div><div class="line">    required: <span class="built_in">boolean</span>; <span class="comment">// 是否为必填</span></div><div class="line">    disabled: <span class="built_in">boolean</span>; <span class="comment">// 是否禁用</span></div><div class="line">    reg: <span class="built_in">string</span>; <span class="comment">// 正则</span></div><div class="line">    prompt: <span class="built_in">string</span>; <span class="comment">// 验证不通过提示</span></div><div class="line">    order: <span class="built_in">number</span>; <span class="comment">// 排序</span></div><div class="line">    controlType: <span class="built_in">string</span>; <span class="comment">// 渲染类型</span></div><div class="line">    <span class="keyword">constructor</span>(<span class="params">options: &#123;</span></div><div class="line">        value?: T,</div><div class="line">        key?: <span class="built_in">string</span>,</div><div class="line">        label?: <span class="built_in">string</span>,</div><div class="line">        required?: <span class="built_in">boolean</span>,</div><div class="line">        disabled?: <span class="built_in">boolean</span>,</div><div class="line">        reg?: <span class="built_in">string</span>,</div><div class="line">        prompt?: <span class="built_in">string</span>,</div><div class="line">        order?: <span class="built_in">number</span>,</div><div class="line">        controlType?: <span class="built_in">string</span></div><div class="line">    &#125; = &#123;&#125;) &#123;</div><div class="line">        <span class="comment">// 设置各个值的默认值</span></div><div class="line">        <span class="keyword">this</span>.value = options.value;</div><div class="line">        <span class="keyword">this</span>.key = options.key || <span class="string">''</span>;</div><div class="line">        <span class="keyword">this</span>.label = options.label || <span class="string">''</span>;</div><div class="line">        <span class="keyword">this</span>.required = !!options.required;</div><div class="line">        <span class="keyword">this</span>.disabled = !!options.disabled;</div><div class="line">        <span class="keyword">this</span>.reg = options.reg || <span class="string">''</span>;</div><div class="line">        <span class="keyword">this</span>.prompt = options.prompt || <span class="string">''</span>;</div><div class="line">        <span class="keyword">this</span>.order = options.order || <span class="number">0</span>;</div><div class="line">        <span class="keyword">this</span>.controlType = options.controlType || <span class="string">''</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在这个基础上，我们派生出两个类 <code>InputQuestion</code> 和 <code>SelectQuestion</code> ,代表文本框和下拉框。</p>
+<p>这么做的原因是根据不同的控件，进行个性化定制，以及合理规范，还有动态渲染出合适的组件</p>
+<p><code>InputQuestion</code> 可以通过type属性来支持多种HTML元素类型（例如: <code>text number email</code>） — <code>dynamic-form-base/question-input.ts</code>    </p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; QuestionBase &#125; <span class="keyword">from</span> <span class="string">'./question-base'</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> InputQuestion <span class="keyword">extends</span> QuestionBase&lt;<span class="built_in">string</span> | <span class="built_in">number</span>&gt; &#123;</div><div class="line">    controlType = <span class="string">'input'</span>;</div><div class="line">    <span class="keyword">type</span>: <span class="built_in">string</span>;</div><div class="line"></div><div class="line">    <span class="keyword">constructor</span>(<span class="params">options: &#123;&#125; = &#123;&#125;</span>) &#123;</div><div class="line">        <span class="keyword">super</span>(options);</div><div class="line">        <span class="keyword">this</span>.type = options[<span class="string">'type'</span>] || <span class="string">''</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>SelectQuestion</code> 表示一个带可选列表的选择框<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; QuestionBase &#125; <span class="keyword">from</span> <span class="string">'./question-base'</span>;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> SelectQuestion <span class="keyword">extends</span> QuestionBase&lt;<span class="built_in">string</span> | <span class="built_in">number</span>&gt; &#123;</div><div class="line">    controlType = <span class="string">'select'</span>;</div><div class="line">    options: <span class="built_in">any</span>[] = [];</div><div class="line"></div><div class="line">    <span class="keyword">constructor</span>(<span class="params">options: &#123;&#125; = &#123;&#125;</span>) &#123;</div><div class="line">        <span class="keyword">super</span>(options);</div><div class="line">        <span class="keyword">this</span>.options = options[<span class="string">'options'</span>] || [];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>最后别忘了用 <code>index.ts</code> 将这三个模型导出</p>
+<p>接下来，我们定义一个 <code>QuestionControlService</code>，一个可以把模型转换为FormGroup的服务。 简而言之，这个FormGroup使用问卷模型的元数据，并允许我们设置默认值和验证规则</p>
+<p><code>question-control.service.ts</code></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Injectable &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123; FormControl, FormGroup, Validators &#125; <span class="keyword">from</span> <span class="string">'@angular/forms'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; QuestionBase &#125; <span class="keyword">from</span> <span class="string">'./dynamic-form-base'</span>;</div><div class="line"></div><div class="line"><span class="meta">@Injectable</span>()</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> QuestionControlService &#123;</div><div class="line">    <span class="keyword">constructor</span>(<span class="params"></span>) &#123; &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 转化为控件</span></div><div class="line">    toFormGroup(questions: QuestionBase&lt;<span class="built_in">any</span>&gt;[]) &#123;</div><div class="line">        <span class="keyword">let</span> group: <span class="built_in">any</span> = &#123;&#125;;</div><div class="line"></div><div class="line">        questions.forEach(<span class="function"><span class="params">question</span> =&gt;</span> &#123;</div><div class="line">            <span class="keyword">if</span> (question.required) &#123;    <span class="comment">// 选项为必填时</span></div><div class="line">                <span class="keyword">if</span> (question.reg) &#123;       <span class="comment">// 有正则的情况</span></div><div class="line">                    group[question.key] = <span class="keyword">new</span> FormControl(question.value || <span class="string">''</span>, Validators.compose([Validators.required, Validators.pattern(question.reg)]));</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    group[question.key] = <span class="keyword">new</span> FormControl(question.value || <span class="string">''</span>, Validators.compose([Validators.required]));</div><div class="line">                &#125;</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (!question.required &amp;&amp; question.reg) &#123;     <span class="comment">// 选项为非必填但是需要正则匹配的情况</span></div><div class="line">                group[question.key] = <span class="keyword">new</span> FormControl(question.value || <span class="string">''</span>, Validators.compose([Validators.pattern(question.reg)]));</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                group[question.key] = <span class="keyword">new</span> FormControl(question.value || <span class="string">''</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> FormGroup(group);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="动态表单组件"><a href="#动态表单组件" class="headerlink" title="动态表单组件"></a>动态表单组件</h3><p>现在我们已经有了一个定义好的完整模型了，接着就可以开始构建一个展现动态表单的组件。</p>
+<p><code>DynamicFormComponent</code> 是表单的主要容器和入口</p>
+<p><code>dynamic-form.component.html</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">form</span> (<span class="attr">ngSubmit</span>)=<span class="string">"onSubmit()"</span> [<span class="attr">formGroup</span>]=<span class="string">"form"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> *<span class="attr">ngFor</span>=<span class="string">"let question of questions"</span> <span class="attr">class</span>=<span class="string">"form-row"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">df-question</span> [<span class="attr">question</span>]=<span class="string">"question"</span> [<span class="attr">form</span>]=<span class="string">"form"</span>&gt;</span><span class="tag">&lt;/<span class="name">df-question</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-row"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span> [<span class="attr">disabled</span>]=<span class="string">"!form.valid"</span>&gt;</span>保存<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">form</span>&gt;</span></div><div class="line"></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> *<span class="attr">ngIf</span>=<span class="string">"payload"</span> <span class="attr">class</span>=<span class="string">"form-row"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">strong</span>&gt;</span>Saved the following values<span class="tag">&lt;/<span class="name">strong</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span>&#123;&#123;payload&#125;&#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><code>dynamic-form.component.ts</code></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Component, Input, OnInit &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123; FormGroup &#125; <span class="keyword">from</span> <span class="string">'@angular/forms'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; QuestionBase &#125; <span class="keyword">from</span> <span class="string">'./dynamic-form-base/question-base'</span>;</div><div class="line"><span class="keyword">import</span> &#123; QuestionControlService &#125; <span class="keyword">from</span> <span class="string">'./question-control.service'</span>;</div><div class="line"></div><div class="line"><span class="meta">@Component</span>(&#123;</div><div class="line">  selector: <span class="string">'dynamic-form'</span>,</div><div class="line">  templateUrl: <span class="string">'./dynamic-form.component.html'</span>,</div><div class="line">  providers: [QuestionControlService]</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> DynamicFormComponent <span class="keyword">implements</span> OnInit &#123;</div><div class="line">  <span class="meta">@Input</span>() questions: QuestionBase&lt;<span class="built_in">any</span>&gt;[] = [];</div><div class="line">  form: FormGroup;</div><div class="line">  payload = <span class="string">''</span>;</div><div class="line"></div><div class="line">  <span class="keyword">constructor</span>(<span class="params"></span></div><div class="line">    <span class="keyword">private</span> qcs: QuestionControlService</div><div class="line">  ) &#123; &#125;</div><div class="line"></div><div class="line">  ngOnInit() &#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.questions);</div><div class="line">    <span class="keyword">this</span>.form = <span class="keyword">this</span>.qcs.toFormGroup(<span class="keyword">this</span>.questions);</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.form);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  onSubmit() &#123;</div><div class="line">    <span class="keyword">this</span>.payload = <span class="built_in">JSON</span>.stringify(<span class="keyword">this</span>.form.value);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>刚才创建的是一个组件入口，每个 <code>question</code> 都被绑定到了 <code>&lt;df-question&gt;</code>组件元素，<code>&lt;df-question&gt;</code> 标签匹配到的是组件 <code>DynamicFormQuestionComponent</code>，该组件的职责是根据各个问卷问题对象的值来动态渲染表单控件。</p>
+<p>现在来创建它的子组件 <code>DynamicFormQuestionComponent</code></p>
+<p><code>dynamic-form-question/dynamic-form.component.html</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> [<span class="attr">formGroup</span>]=<span class="string">"form"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> [<span class="attr">ngSwitch</span>]=<span class="string">"question.controlType"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input</span> *<span class="attr">ngSwitchCase</span>=<span class="string">"'input'"</span> [<span class="attr">formControlName</span>]=<span class="string">"question.key"</span> [<span class="attr">id</span>]=<span class="string">"question.key"</span> [<span class="attr">type</span>]=<span class="string">"question.type"</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">select</span> [<span class="attr">id</span>]=<span class="string">"question.key"</span> *<span class="attr">ngSwitchCase</span>=<span class="string">"'select'"</span> [<span class="attr">formControlName</span>]=<span class="string">"question.key"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">option</span> *<span class="attr">ngFor</span>=<span class="string">"let opt of question.options"</span> [<span class="attr">value</span>]=<span class="string">"opt.value"</span>&gt;</span>&#123;&#123;opt.key&#125;&#125;<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="name">select</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><code>dynamic-form-question/dynamic-form.component.ts</code><br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Component, Input &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123; FormGroup &#125; <span class="keyword">from</span> <span class="string">'@angular/forms'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; QuestionBase &#125; <span class="keyword">from</span> <span class="string">'../dynamic-form-base/question-base'</span>;</div><div class="line"></div><div class="line"><span class="meta">@Component</span>(&#123;</div><div class="line">  selector: <span class="string">'df-question'</span>,</div><div class="line">  templateUrl: <span class="string">'./dynamic-form-question.component.html'</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> DynamicFormQuestionComponent &#123;</div><div class="line">  <span class="meta">@Input</span>() question: QuestionBase&lt;<span class="built_in">any</span>&gt;;</div><div class="line">  <span class="meta">@Input</span>() form: FormGroup;</div><div class="line"></div><div class="line">  <span class="keyword">get</span> isValid() &#123; <span class="keyword">return</span> <span class="keyword">this</span>.form.controls[<span class="keyword">this</span>.question.key].valid &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>从上面的组件可以看出，未来需要添加组件时，只需要添加一种类型，可以用 <code>ngSwitch</code> 决定显示哪种类型的问题。</p>
+<p>在这两个组件中，我们依赖Angular的formGroup来把模板HTML和底层控件对象连接起来，该对象从问卷问题模型里获取渲染和验证规则。</p>
+<blockquote>
+<p>注意：每个目录都需要用 <code>index.ts</code> 导出模块, 这里需要在 <code>theme/components</code> 将我们注册的组件统一导出。</p>
+</blockquote>
+<h3 id="注册组件"><a href="#注册组件" class="headerlink" title="注册组件"></a>注册组件</h3><p>我们创建组件之后，需要将我们的组件注册到 <code>module</code> 中，这里选择 <code>theme/nga.module.ts</code> 注入我们的组件。</p>
+<blockquote>
+<p>其实使用组件还需要注入 <code>ReactiveFormsModule</code>， ng2-admin 已经帮我们注册好了，所以我们这里只需要注册我们创建的组件即可</p>
+</blockquote>
+<p>方法如下图，先引入</p>
+<p><img src="http://dev.vpclub.cn/group1/M00/00/21/rBAFJFnLgHaAd9uRAAFEpzM2gbw801.png" alt="mark"></p>
+<p>然后添加至 <code>NGA_COMPONENTS</code></p>
+<p><img src="http://dev.vpclub.cn/group1/M00/00/21/rBAFJFnLgKWAAi7UAABh7tteWY8746.png" alt="mark"></p>
+<h3 id="注册Service"><a href="#注册Service" class="headerlink" title="注册Service"></a>注册Service</h3><p><code>DynamicForm</code> 期望得到一个问题列表，该列表被绑定到@Input() questions属性。</p>
+<p><code>QuestionService</code> 会返回为工作申请表定义的那组问题列表。在真实的应用程序环境中，我们会从数据库里获得这些问题列表。</p>
+<p>要维护控件，只要非常简单的添加、更新和删除 <code>questions</code> 数组中的对象就可以了。</p>
+<p>切换到 <code>pages</code> 文件夹，开始使用我们上一章创建的 <code>UserAddComponent</code> </p>
+<p><code>pages/user/user-list/user-add/user-add.service.ts</code></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Injectable &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> &#123;</div><div class="line">  QuestionBase,</div><div class="line">  InputQuestion,</div><div class="line">  SelectQuestion</div><div class="line">&#125; <span class="keyword">from</span> <span class="string">'../../../../theme/components/dynamic-form/dynamic-form-base'</span>;</div><div class="line"></div><div class="line"><span class="meta">@Injectable</span>()</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> UserAddService &#123;</div><div class="line">  getQuestions() &#123;</div><div class="line">    <span class="keyword">let</span> questions: QuestionBase&lt;<span class="built_in">any</span>&gt;[] = [</div><div class="line"></div><div class="line">      <span class="keyword">new</span> SelectQuestion(&#123;</div><div class="line">        key: <span class="string">'brave'</span>,</div><div class="line">        label: <span class="string">'Bravery Rating'</span>,</div><div class="line">        value: <span class="string">'solid'</span>,</div><div class="line">        options: [</div><div class="line">          &#123; key: <span class="string">'Solid'</span>, value: <span class="string">'solid'</span> &#125;,</div><div class="line">          &#123; key: <span class="string">'Great'</span>, value: <span class="string">'great'</span> &#125;,</div><div class="line">          &#123; key: <span class="string">'Good'</span>, value: <span class="string">'good'</span> &#125;,</div><div class="line">          &#123; key: <span class="string">'Unproven'</span>, value: <span class="string">'unproven'</span> &#125;</div><div class="line">        ],</div><div class="line">        order: <span class="number">3</span></div><div class="line">      &#125;),</div><div class="line"></div><div class="line">      <span class="keyword">new</span> InputQuestion(&#123;</div><div class="line">        key: <span class="string">'firstName'</span>,</div><div class="line">        label: <span class="string">'First name'</span>,</div><div class="line">        value: <span class="string">'Bombasto'</span>,</div><div class="line">        required: <span class="literal">true</span>,</div><div class="line">        order: <span class="number">1</span></div><div class="line">      &#125;),</div><div class="line"></div><div class="line">      <span class="keyword">new</span> InputQuestion(&#123;</div><div class="line">        key: <span class="string">'emailAddress'</span>,</div><div class="line">        label: <span class="string">'Email'</span>,</div><div class="line">        <span class="keyword">type</span>: <span class="string">'email'</span>,</div><div class="line">        order: <span class="number">2</span></div><div class="line">      &#125;)</div><div class="line">    ];</div><div class="line"></div><div class="line">    <span class="keyword">return</span> questions.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a.order - b.order);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>需要在 <code>html</code> 文件以及 <code>component</code> 文件中显示，所以修改一下这两个文件</p>
+<p><code>user-add.component.html</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span></div><div class="line">    新增用户组件</div><div class="line"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"user-form"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">dynamic-form</span> [<span class="attr">questions</span>]=<span class="string">"UserAddQuestions"</span>&gt;</span><span class="tag">&lt;/<span class="name">dynamic-form</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><code>user-add.component.ts</code></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Component &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; UserAddService &#125; <span class="keyword">from</span> <span class="string">'./user-add.service'</span>;</div><div class="line"><span class="keyword">import</span> &#123; QuestionBase &#125; <span class="keyword">from</span> <span class="string">'../../../../theme/components/dynamic-form/dynamic-form-base/question-base'</span>;</div><div class="line"></div><div class="line"><span class="meta">@Component</span>(&#123;</div><div class="line">  selector: <span class="string">'ngt-user-add'</span>,</div><div class="line">  templateUrl: <span class="string">'./user-add.component.html'</span>,</div><div class="line">  providers: [UserAddService]</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> UserAddComponent &#123;</div><div class="line">  <span class="keyword">public</span> UserAddQuestions: QuestionBase&lt;<span class="built_in">any</span>&gt;[] = [];</div><div class="line">  </div><div class="line">  <span class="keyword">constructor</span>(<span class="params"></span></div><div class="line">    <span class="keyword">private</span> service: UserAddService</div><div class="line">  ) &#123;</div><div class="line">    <span class="keyword">this</span>.UserAddQuestions = <span class="keyword">this</span>.service.getQuestions();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后打开浏览器，输入 <code>http://localhost:4200/#/pages/user/list/add</code> </p>
+<p>访问效果如下图，填入一些数据，然后点击保存，我们需要存入的数据，显示在了下方</p>
+<p><img src="http://dev.vpclub.cn/group1/M00/00/21/rBAFJFnLgpiAKU98AAQ9mXly9FI602.png" alt="mark"></p>
+<p>动态表单的雏形已经做出来了，现在还有几个问题</p>
+<ul>
+<li><p>样式需要优化</p>
+</li>
+<li><p>数据如何过滤优化</p>
+</li>
+<li><p>数据如何提交</p>
+</li>
+<li><p>组件功能有些薄弱</p>
+</li>
+</ul>
+<p>这些问题我们会在后续的章节慢慢解决，可以期待。</p>
+<p><a href="https://github.com/a1029563229/ng2-admin" target="_blank" rel="external">github地址 （分支 dynamic-form）</a> 可以直接拉代码下来启动项目查看</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>您的支持将是我前进的最大动力！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wxqrcode.jpg" alt="shadows WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/zfbqrcode.jpg" alt="shadows Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/angular/" rel="tag"># angular</a>
+          
+            <a href="/tags/ng2-admin/" rel="tag"># ng2-admin</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/19/ng2-admin-1/" rel="next" title="'使用ng2-admin搭建成熟可靠的后台系统 -- ng2-admin（一）'">
+                <i class="fa fa-chevron-left"></i> '使用ng2-admin搭建成熟可靠的后台系统 -- ng2-admin（一）'
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="shadows" />
+          <p class="site-author-name" itemprop="name">shadows</p>
+           
+              <p class="site-description motion-element" itemprop="description">你是无意穿堂风，却偏偏引山洪</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用ng2-admin搭建成熟可靠的后台系统-–-ng2-admin（二）"><span class="nav-number">1.</span> <span class="nav-text">使用ng2-admin搭建成熟可靠的后台系统 – ng2-admin（二）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-构建动态表单"><span class="nav-number">1.1.</span> <span class="nav-text">1.构建动态表单</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建组件目录"><span class="nav-number">1.1.1.</span> <span class="nav-text">创建组件目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建对象模型"><span class="nav-number">1.1.2.</span> <span class="nav-text">创建对象模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态表单组件"><span class="nav-number">1.1.3.</span> <span class="nav-text">动态表单组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注册组件"><span class="nav-number">1.1.4.</span> <span class="nav-text">注册组件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注册Service"><span class="nav-number">1.1.5.</span> <span class="nav-text">注册Service</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shadows</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://litao-1.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://a1029563229.github.io/2017/09/27/ng2-admin-2/';
+          this.page.identifier = '2017/09/27/ng2-admin-2/';
+          this.page.title = '\'使用ng2-admin搭建成熟可靠的后台系统 -- ng2-admin（二）\'';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://litao-1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("n712ihaLgRYbi9fyRJjdfxVu-gzGzoHsz", "BlRvHjCQnPDrCBWo0YsH5QOd");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
