@@ -1,0 +1,957 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="angular,ng2-admin," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="使用ng2-admin搭建成熟可靠的后台系统 – ng2-admin（三） 完善动态表单  添加样式。  抽离组件。     添加组件样式 上一篇文章创建了两个，组件，现在使用bootstrap来给他们添加一些样式  首先需要一个公用的 scss ， 然后是各个组件自身的样式 ctrl + p 打开 dynamic-form.component.ts 文件（打开文件方式不再复述） 在 @Compo">
+<meta name="keywords" content="angular,ng2-admin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&#39;使用ng2-admin搭建成熟可靠的后台系统 -- ng2-admin（三）&#39;">
+<meta property="og:url" content="https://a1029563229.github.io/2017/12/09/ng2-admin-3/index.html">
+<meta property="og:site_name" content="shadows">
+<meta property="og:description" content="使用ng2-admin搭建成熟可靠的后台系统 – ng2-admin（三） 完善动态表单  添加样式。  抽离组件。     添加组件样式 上一篇文章创建了两个，组件，现在使用bootstrap来给他们添加一些样式  首先需要一个公用的 scss ， 然后是各个组件自身的样式 ctrl + p 打开 dynamic-form.component.ts 文件（打开文件方式不再复述） 在 @Compo">
+<meta property="og:image" content="http://devgw.vpclub.cn/group1/M00/00/9F/rBAC6lory9aAFeHWAAu4v3Bc1xw171.png">
+<meta property="og:image" content="http://devgw.vpclub.cn/group1/M00/00/A7/rBAFJForWP2AQihYAAkOaloDfdA629.png">
+<meta property="og:updated_time" content="2017-12-09T12:38:30.320Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="&#39;使用ng2-admin搭建成熟可靠的后台系统 -- ng2-admin（三）&#39;">
+<meta name="twitter:description" content="使用ng2-admin搭建成熟可靠的后台系统 – ng2-admin（三） 完善动态表单  添加样式。  抽离组件。     添加组件样式 上一篇文章创建了两个，组件，现在使用bootstrap来给他们添加一些样式  首先需要一个公用的 scss ， 然后是各个组件自身的样式 ctrl + p 打开 dynamic-form.component.ts 文件（打开文件方式不再复述） 在 @Compo">
+<meta name="twitter:image" content="http://devgw.vpclub.cn/group1/M00/00/9F/rBAC6lory9aAFeHWAAu4v3Bc1xw171.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://a1029563229.github.io/2017/12/09/ng2-admin-3/"/>
+
+
+
+
+
+  <title>'使用ng2-admin搭建成熟可靠的后台系统 -- ng2-admin（三）' | shadows</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">shadows</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">the blog of shadows</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://a1029563229.github.io/2017/12/09/ng2-admin-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="shadows">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shadows">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">'使用ng2-admin搭建成熟可靠的后台系统 -- ng2-admin（三）'</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-09T20:34:40+08:00">
+                2017-12-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/angular/" itemprop="url" rel="index">
+                    <span itemprop="name">angular</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/12/09/ng2-admin-3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/12/09/ng2-admin-3/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/12/09/ng2-admin-3/" class="leancloud_visitors" data-flag-title="'使用ng2-admin搭建成熟可靠的后台系统 -- ng2-admin（三）'">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="使用ng2-admin搭建成熟可靠的后台系统-–-ng2-admin（三）"><a href="#使用ng2-admin搭建成熟可靠的后台系统-–-ng2-admin（三）" class="headerlink" title="使用ng2-admin搭建成熟可靠的后台系统 – ng2-admin（三）"></a>使用ng2-admin搭建成熟可靠的后台系统 – ng2-admin（三）</h1><p><br></p>
+<h2 id="完善动态表单"><a href="#完善动态表单" class="headerlink" title="完善动态表单"></a>完善动态表单</h2><blockquote>
+<ul>
+<li><p>添加样式。</p>
+</li>
+<li><p>抽离组件。</p>
+</li>
+</ul>
+</blockquote>
+<p><br></p>
+<h3 id="添加组件样式"><a href="#添加组件样式" class="headerlink" title="添加组件样式"></a>添加组件样式</h3><blockquote>
+<p>上一篇文章创建了两个，组件，现在使用bootstrap来给他们添加一些样式</p>
+</blockquote>
+<p>首先需要一个公用的 <code>scss</code> ， 然后是各个组件自身的样式</p>
+<p><code>ctrl + p</code> 打开 <code>dynamic-form.component.ts</code> 文件（打开文件方式不再复述）</p>
+<p>在 <code>@Component</code> 装饰器处，添加 <code>scss</code> (<code>ng2-madin</code> 自带 <code>bootstrap</code> 样式库，所以不需要引入)<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Component</span>(&#123;</div><div class="line">  selector: <span class="string">'dynamic-form'</span>,</div><div class="line">  templateUrl: <span class="string">'./dynamic-form.component.html'</span>,</div><div class="line">  styleUrls: [<span class="string">'./dynamic-form.component.scss'</span>],</div><div class="line">  providers: [QuestionControlService]</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>随后创建 <code>dynamic-form.component.scss</code> 文件<br><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">form</span> &#123;</div><div class="line">  <span class="selector-class">.form-group</span> &#123;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">20px</span> <span class="number">0</span>;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>同时还需要修改几个文件<br><code>dynamic-form.component.html</code> 保存按钮添加一个 <code>class</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span> [<span class="attr">disabled</span>]=<span class="string">"!form.valid"</span> <span class="attr">class</span>=<span class="string">"btn btn-success"</span>&gt;</span>保存<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>dynamic-form-question.html</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> [<span class="attr">formGroup</span>]=<span class="string">"form"</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> [<span class="attr">ngSwitch</span>]=<span class="string">"question.controlType"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"form-control"</span> *<span class="attr">ngSwitchCase</span>=<span class="string">"'input'"</span> [<span class="attr">formControlName</span>]=<span class="string">"question.key"</span> [<span class="attr">id</span>]=<span class="string">"question.key"</span> [<span class="attr">type</span>]=<span class="string">"question.type"</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">select</span> <span class="attr">class</span>=<span class="string">"form-control"</span> [<span class="attr">id</span>]=<span class="string">"question.key"</span> *<span class="attr">ngSwitchCase</span>=<span class="string">"'select'"</span> [<span class="attr">formControlName</span>]=<span class="string">"question.key"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">option</span> *<span class="attr">ngFor</span>=<span class="string">"let opt of question.options"</span> [<span class="attr">value</span>]=<span class="string">"opt.value"</span>&gt;</span>&#123;&#123;opt.key&#125;&#125;<span class="tag">&lt;/<span class="name">option</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">select</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>最终效果如下，效果比之前好很多，后续我们会继续优化样式。<br><img src="http://devgw.vpclub.cn/group1/M00/00/9F/rBAC6lory9aAFeHWAAu4v3Bc1xw171.png" alt="mark"></p>
+<h3 id="抽离组件"><a href="#抽离组件" class="headerlink" title="抽离组件"></a>抽离组件</h3><blockquote>
+<p>抽离组件的意思是，把 <code>form</code> 组件用到的所有组件都抽离出来作为一个单独的组件库，可以有业务组件，也可以有完全解耦的功能组件，可以在多平台的时候发挥巨大的优势，后期也可以作为自己的一个组件库开源！</p>
+</blockquote>
+<p>在 <code>theme/components</code> 下创建一个目录 <code>dynamic-form-components</code></p>
+<p>直接把 <code>dymamic-form</code> 目录下的 <code>dynamic-form-base</code> 目录迁移过去，记得把之前引入的文件路径修改一下，否则会报错</p>
+<p>然后在新建的组件目录下，新建文件夹 <code>dynamic-form-questions</code>，用于装载我们即将创建的组件, 然后继续创建 <code>dynamic-form-questions/input-textbox</code> 目录</p>
+<p><code>input-texbox.component.ts</code><br><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; Component, Input &#125; <span class="keyword">from</span> <span class="string">"@angular/core"</span>;</div><div class="line"><span class="keyword">import</span> &#123; FormGroup &#125; <span class="keyword">from</span> <span class="string">'@angular/forms'</span>;</div><div class="line"></div><div class="line"><span class="keyword">import</span> &#123; InputQuestion &#125; <span class="keyword">from</span> <span class="string">"../../dynamic-form-base/question-input"</span>;</div><div class="line"></div><div class="line"><span class="meta">@Component</span>(&#123;</div><div class="line">  selector: <span class="string">"input-textbox"</span>,</div><div class="line">  templateUrl: <span class="string">"./input-textbox.component.html"</span>,</div><div class="line">  styleUrls: [<span class="string">"./input-textbox.component.scss"</span>]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> InputTextboxComponent &#123;</div><div class="line">  <span class="meta">@Input</span>() question: InputQuestion;</div><div class="line">  <span class="meta">@Input</span>() form: FormGroup;</div><div class="line"></div><div class="line">  <span class="keyword">constructor</span>(<span class="params"></span>) &#123;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><code>input-texbox.component.html</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-container"</span> [<span class="attr">formGroup</span>]=<span class="string">"form"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">""</span>&gt;</span>&#123;&#123;question.label&#125;&#125;<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"form-control"</span> [<span class="attr">formControlName</span>]=<span class="string">"question.key"</span> [<span class="attr">id</span>]=<span class="string">"question.key"</span> [<span class="attr">type</span>]=<span class="string">"question.type"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>index.ts</code> 该文件不再声明，读者自行根据引入路径添加即可<br><figure class="highlight ts"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> * <span class="keyword">from</span> <span class="string">'./input-textbox.component'</span>;</div></pre></td></tr></table></figure></p>
+<p>这样我们的组件就有了单独的目录管理，涉及到多平台时，可以把组件单独引入</p>
+<p>同理读者尝试创建 <code>InputSelectComponent</code></p>
+<p>在 <code>nga.module.ts</code> 中注册这两个组件后，修改文件</p>
+<p><code>dynamic-form-question.component.html</code><br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> [<span class="attr">formGroup</span>]=<span class="string">"form"</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> [<span class="attr">ngSwitch</span>]=<span class="string">"question.controlType"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">ng-container</span> *<span class="attr">ngSwitchCase</span>=<span class="string">"'input'"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input-textbox</span> [<span class="attr">question</span>]=<span class="string">"question"</span> [<span class="attr">form</span>]=<span class="string">"form"</span>&gt;</span><span class="tag">&lt;/<span class="name">input-textbox</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">ng-container</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">ng-container</span> *<span class="attr">ngSwitchCase</span>=<span class="string">"'select'"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input-select</span> [<span class="attr">question</span>]=<span class="string">"question"</span> [<span class="attr">form</span>]=<span class="string">"form"</span>&gt;</span><span class="tag">&lt;/<span class="name">input-select</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">ng-container</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>最终效果<br><img src="http://devgw.vpclub.cn/group1/M00/00/A7/rBAFJForWP2AQihYAAkOaloDfdA629.png" alt="mark"></p>
+<p>看起来没有太大变化，实际上我们完成了组件的抽离，在未来的日子里，组件库会慢慢越来越多，创建更多高耦合性的组件，利用功能组件来组成业务组件，减少文件大小，将会是一个大工程。</p>
+<p>下一章会讲解，一个集成的 <code>service</code> 服务，来完成我们的 form 提交，在将来的篇章里会在我们的 form 组件中加入 <code>redux</code>, <code>subject</code> 使其变得更加灵活。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>您的支持将是我前进的最大动力！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wxqrcode.jpg" alt="shadows WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/zfbqrcode.jpg" alt="shadows Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/angular/" rel="tag"># angular</a>
+          
+            <a href="/tags/ng2-admin/" rel="tag"># ng2-admin</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/27/ng2-admin-2/" rel="next" title="'使用ng2-admin搭建成熟可靠的后台系统 -- ng2-admin（二）'">
+                <i class="fa fa-chevron-left"></i> '使用ng2-admin搭建成熟可靠的后台系统 -- ng2-admin（二）'
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="shadows" />
+          <p class="site-author-name" itemprop="name">shadows</p>
+           
+              <p class="site-description motion-element" itemprop="description">你是无意穿堂风，却偏偏引山洪</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用ng2-admin搭建成熟可靠的后台系统-–-ng2-admin（三）"><span class="nav-number">1.</span> <span class="nav-text">使用ng2-admin搭建成熟可靠的后台系统 – ng2-admin（三）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#完善动态表单"><span class="nav-number">1.1.</span> <span class="nav-text">完善动态表单</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加组件样式"><span class="nav-number">1.1.1.</span> <span class="nav-text">添加组件样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽离组件"><span class="nav-number">1.1.2.</span> <span class="nav-text">抽离组件</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shadows</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://litao-1.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'https://a1029563229.github.io/2017/12/09/ng2-admin-3/';
+          this.page.identifier = '2017/12/09/ng2-admin-3/';
+          this.page.title = '\'使用ng2-admin搭建成熟可靠的后台系统 -- ng2-admin（三）\'';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://litao-1.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("n712ihaLgRYbi9fyRJjdfxVu-gzGzoHsz", "BlRvHjCQnPDrCBWo0YsH5QOd");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
